@@ -8,6 +8,7 @@
 			<link rel="stylesheet" href="./CSS/Styles/Recherche.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<script src="./Scripts/recherche.js"></script>
 		</head>
 
 		<body>
@@ -77,7 +78,7 @@
 			while ($i<count($donnees) )
 			{
 				echo "<div class='row UnResultat'>";
-		     	echo "<a href='./Restaurant/Fiche/restaurant.php' class='NomRestau'>" . $donnees[$i]['NomR'] . "</a> <br>";
+		     	echo "<span class='NomRestau'>". $donnees[$i]['NomR'] . "</span><span class='hide'>".$donnees[$i]['ID_R']."</span> <br>";
 		     	echo "<div class='ContenuLien'>";
 		     	echo "<small><label>" . $donnees[$i]['Ville']  . '</label></small>' . '<br> ';
 		     	echo "(Spécialité : " .  $donnees[$i]['Specialite'] . ")" . "<br>";
