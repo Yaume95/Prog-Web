@@ -149,4 +149,75 @@ $(document).ready(function()
 		}	
 	});
 
+
+
+	$(".villeR").on('keyup change paste',function()
+	{
+		$ville = $('.villeR').val();
+		$regVille = /^[ a-zA-Z]{1,50}$/;  //doit commencer par des chiffres suivie de lettre
+		$test5 = $regVille.test($ville);		
+		
+		if($ville=="")
+		{
+			$("#IconeVille").addClass("hide");
+			$("#IconeVille").parent("div").parent("div").children("div.has-error").addClass("hide");
+		}	
+		else if($test5)
+		{
+			$("#IconeVille").removeClass("hide");
+			$("#IconeVille").removeClass("has-error");
+			$("#IconeVille").addClass("has-success");
+			$("#IconeVille").children(".erreur").addClass("hide");
+			$("#IconeVille").children(".valide").removeClass("hide");
+			$("#IconeVille").parent("div").parent("div").children("div.has-error").addClass("hide");
+
+		}
+		else
+		{
+			$("#IconeVille").removeClass("hide");
+			$("#IconeVille").addClass("has-error");
+			$("#IconeVille").removeClass("has-success");
+			$("#IconeVille").children(".erreur").removeClass("hide");
+			$("#IconeVille").children(".valide").addClass("hide");
+			$("#IconeVille").parent("div").parent("div").children("div.has-error").removeClass("hide");
+		}	
+	});
+
 });
+
+function testConfirmation()
+	{
+		if($test1==false)
+		{
+			alert("Nom incorrect");
+			return false;
+		}
+
+		if($test2==false)
+		{
+			alert("Adresse incorrecte");
+			return false;
+		}
+
+		if($test3==false)
+		{
+			alert("Telephone incorrect");
+			return false;
+		}
+
+		if($test4==false)
+		{
+			alert("Capacité incorrecte");
+			return false;
+		}
+
+		if($test5==false)
+		{
+			alert("Ville incorrecte");
+			return false;
+		}
+			
+			
+		return true;
+
+	};

@@ -1,6 +1,9 @@
 <script src="./Scripts/utilisateur.js"></script>
 <link rel="stylesheet" href="./CSS/Styles/Formulaire.css">
 
+
+
+
 <li>
     <a class="dropdown-toggle" data-toggle="dropdown" id="OptionUtilisateur"> 
     	<span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['Prénom'] .' ' . $_SESSION['Nom']; ?>

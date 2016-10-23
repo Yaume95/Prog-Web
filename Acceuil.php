@@ -12,15 +12,13 @@
 
 		<body>
 
-
-
-			<?php include("Entete/Entete.php"); ?>
+		<?php include("Entete/Entete.php"); ?>
 
 
 		<!--============================ Barre de recherche ======================= -->
 
 		<div class= "container-fluid" id="Searchbar">
-			<form class="form-inline" action="recherche.php" method ="post">
+			<form class="form-inline" action="Recherche.php" method ="get">
 				<div class="col-lg-3 col-md-3 col-sm-3"></div>
 				<div class="input-group col-lg-8 col-md-8 col-sm-8">
 					<input type="text" name="recherche" class="form-control" placeholder="Choisissez les mots clés pour votre recherche...">

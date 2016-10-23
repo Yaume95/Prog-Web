@@ -6,6 +6,7 @@ try
 	$dbh= new PDO('mysql:host=127.0.0.1;dbname=projet_web','root','');
 
 	$dbh->beginTransaction();
+	
 
 	$stmt = $dbh->prepare("INSERT INTO membre (pseudo,nom, prenom,date_naissance,email,mdp) VALUES (:pseudo,:nom,:prenom, :date_naissance, :email, :mdp");
 

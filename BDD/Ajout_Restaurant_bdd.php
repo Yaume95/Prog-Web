@@ -10,11 +10,12 @@ try
 
 	$dbh->beginTransaction();
 
-	$stmt = $dbh->prepare("INSERT INTO restaurant (ID_R,NomR, Adresse, CP,Specialite,Tel,Capacite, Description) VALUES (:ID_R ,:NomR, :Adresse, :CP,:Specialite,:Tel,:Capacite, :Description)");
+	$stmt = $dbh->prepare("INSERT INTO restaurant (NomR,Adresse,Ville,CP,Specialite,Tel,Capacite,Description) VALUES (:NomR,:Adresse,:Ville,:CP,:Specialite,:Tel,:Capacite,:Description)");
 
-	$stmt->bindParam(':ID_R',$ID_R);
+
 	$stmt->bindParam(':NomR', $NomR);
 	$stmt->bindParam(':Adresse', $Adresse);
+	$stmt->bindParam(':Ville', $Ville);
 	$stmt->bindParam(':CP',$CP);
 	$stmt->bindParam(':Specialite', $Specialite);
 	$stmt->bindParam(':Tel', $Tel);
@@ -30,6 +31,7 @@ try
 	$Tel=$_POST['Tel'];
 	$Capacite=$_POST['Capacite'];
 	$Description=$_POST['Description'];
+	$Ville=$_POST['Ville'];
 	
 
 	$stmt->execute();

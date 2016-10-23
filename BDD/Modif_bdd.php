@@ -2,6 +2,7 @@
 
 try
 {
+	session_start();
 	
 	$user='root';
 	$pw='';
@@ -20,19 +21,21 @@ try
 	
 
 	
-	echo $nom=$_POST['nom'];
-	echo $prenom=$_POST['prenom'];
-	echo $pseudo=$_POST['pseudo'];
-	echo $email=$_POST['email'];
-	echo $datenaissance=$_POST['datenaissance'];
+	$nom=$_POST['nom'];
+	$prenom=$_POST['prenom'];
+	$pseudo=$_SESSION['Pseudo'];
+	$email=$_POST['email'];
+	$datenaissance=$_POST['datenaissance'];
 
-	echo $_SESSION['Prénom'] = $prenom;
-	echo $_SESSION['Nom'] = $nom;
+	echo $_SESSION['Pseudo'];
 	
 	
 	$requete->execute();
 
 	$dbh->commit();
+	$_SESSION['Prénom'] = $prenom;
+	$_SESSION['Nom'] = $nom;
+
 	
 	}catch(PDOException $e)
 	{
@@ -40,6 +43,7 @@ try
 	} 
 
 	header('Location:../Profil.php');
+	exit();
 		
 
 ?>

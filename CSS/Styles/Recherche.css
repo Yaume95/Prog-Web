@@ -1,0 +1,44 @@
+#Searchbar
+{
+	margin-top:5px;
+
+
+}
+
+#NbRes
+{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	text-decoration: underline;
+	border-top: 2px solid 	grey;
+}
+
+.NomRestau
+{
+	color:  darkblue: ;
+	font-size: 20px	;
+}
+
+
+.ContenuLien
+{
+	margin-top:1em;
+	margin-left: 4em;
+	margin-bottom:2em; 
+}
+
+.UnResultat
+{
+	margin-top: 2em;
+	border-bottom: 2px solid darkgrey;
+}
+
+body
+{
+	background-color: lightgrey;
+}
+
+label
+{
+	font-size: 15px;
+}
