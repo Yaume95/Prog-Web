@@ -1,0 +1,54 @@
+.modal
+{
+	text-align: center;
+	padding: 0;
+}
+
+
+.modal-header
+{
+	border : 0px;
+}
+.modal:before
+{
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.modal-dialog
+{
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	width:80%;
+  	max-width:1000px;
+
+}
+
+h3
+{
+	color: #4F9DCA;
+}
+
+.Label-Form
+{
+	color:#122952;
+}
+
+#OptionUtilisateur:hover
+{
+	cursor:pointer;
+}
+.glyphicon
+{
+	margin-right: 8px;
+}
+
+
+/* ATTENTION  : modif de taille de la checkbox UNIQUEMENT SUR CHROME/SAFARI */
+input[type=checkbox]
+{
+	-webkit-transform: scale(2);
+}

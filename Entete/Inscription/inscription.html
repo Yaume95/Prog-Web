@@ -1,0 +1,130 @@
+<li>
+	<a data-toggle="modal" href="#ModalInscription"><span class="glyphicon glyphicon-user"></span> S'inscrire</a>
+</li>
+<!-- Modal -->
+<div class="modal  fade" id="ModalInscription" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		<div class="modal-header text-center">
+          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+      		<h3 class="modal-title"><b> Votre première visite ?</b><br>
+     			<small> Inscrivez-vous :</small>
+     		</h3>
+        </div>
+
+          <div class="modal-body">
+
+  	   		<form class ="form-horizontal" onsubmit="return testConfirmation()" action="BDD/inscription_bdd.php" method="post">
+				<div class="form-group">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Nom :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-feedback">
+						<input type="text" class="form-control nom" name="nom" placeholder="Entrez votre Nom" required>
+						<div class="hide" id="IconeNom">
+							<span class="glyphicon glyphicon-remove form-control-feedback erreur"></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback valide"></span>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-error hide" id="MsgErreurNom">
+						<label class="control-label">
+							Entre 2 et 15 caractères, pas de chiffres
+						</label>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="form-group">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Prénom :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-feedback">
+						<input type="text" class="form-control prenom" name="prenom" placeholder="Entrez votre Prénom" required>
+						<div class="hide" id="IconePrenom">
+							<span class="glyphicon glyphicon-remove form-control-feedback erreur"></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback valide"></span>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-error hide" id="MsgErreurPrenom">
+						<label class="control-label">
+							Entre 2 et 15 caractères, pas de chiffres
+						</label>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="form-group">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Pseudo :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<input type="text" class="form-control" name="pseudo" placeholder="Entrez votre pseudo" required>
+					</div>
+
+				</div>
+
+				<br>
+
+				<div class="form-group">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Date de naissance :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<input type="date" class="form-control" name="date_naissance"  required>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="form-group">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Mail :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<input type="email" class="form-control" name="email" placeholder="Entrez votre adresse mail" required>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="form-group conf2">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Mot de passe :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-feedback">
+						<input type="password" class="form-control mdp verif" name="mdp" placeholder="Entrez votre mot de passe">
+						<div class="hide" id="IconeMdp">
+							<span class="glyphicon glyphicon-remove form-control-feedback erreur"></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback valide"></span>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-error hide" id="MsgErreurMdp">
+						<label class="control-label">
+							5 à 15 caractères
+						</label>
+					</div>	
+				</div>
+
+				<br>
+
+				<div class="form-group conf2">
+					<label class="col-lg-4 col-md-4 col-sm-4 control-label Label-Form">Confirmation :</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-feedback">
+						<input type="password" class="form-control conf verif" placeholder="Confirmez votre mot de passe" name="confirmation">
+						<div class="hide" id="IconeConf">
+							<span class="glyphicon glyphicon-remove form-control-feedback erreur"></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback valide"></span>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 has-error hide" id="MsgErreurConf">
+						<label class="control-label">
+							Mauvaise confirmation du mot de passe
+						</label>
+					</div>
+				</div>
+
+				<br>
+				
+				<div class="form-group ">
+					<div class="col-lg-4 col-md-4 col-sm-4"></div>
+					<div class="col-lg-2 col-md-2 col-sm-2">
+						<input type="submit" value="M'inscrire" class="btn btn-primary">
+					</div>
+				</div>
+			</form>
+		</div>
+  		</div>
+  	</div>
+</div>
+
+<script src="./Scripts/inscription.js"></script>

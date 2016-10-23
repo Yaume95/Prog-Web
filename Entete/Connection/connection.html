@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="./CSS/Styles/Formulaire.css">
+
+<li>
+	<a data-toggle="modal" href="#ModalConnection"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a>
+</li>
+<!-- Modal -->
+<div class="modal fade" id="ModalConnection" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		<div class="modal-header text-center">
+          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+      		<h3 class="modal-title"><b> Heureux de votre retour </b><br>
+     		</h3>
+        </div>
+			<form class ="form-horizontal" action="BDD/connection_bdd.php" method="post">
+				<br>
+				<div class="form-group">
+					<label class="col-lg-3 col-md-3 col-sm-3 control-label Label-Form">Pseudo :</label>
+					<div class="col-lg-5 col-md-5 col-sm-5">
+						<input type="text" class="form-control" name="pseudo" placeholder="Entrez votre pseudo" required>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="form-group">
+					<label class="col-lg-3 col-md-3 col-sm-3 control-label Label-Form">Mot de passe:</label>
+					<div class="col-lg-5 col-md-5 col-sm-5">
+						<input type="password" class="form-control mdp" name="mdp" placeholder="Entrez votre mot de passe">
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="form-group ">
+					<div class="col-lg-4 col-md-4 col-sm-4"></div>
+					<div class="col-lg-2 col-md-2 col-sm-2">
+						<input type="submit" value="Se connecter" class="btn btn-primary">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

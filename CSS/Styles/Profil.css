@@ -1,0 +1,38 @@
+#Utilisateur
+{
+	border-bottom: 2px solid darkgrey;
+	margin-left: 10px;	
+	margin-bottom:20px;
+	width:100%;
+	letter-spacing: 2px;
+}
+
+img
+{
+	min-width: 100px;
+	min-width: 100px;
+	max-width: 125px;
+	max-height: 125px;
+}
+
+.NomChamp
+{
+	text-align: left;
+	
+	margin-bottom: 20px;
+}
+
+.Champ
+{
+	text-align: right;
+}
+
+body
+{
+	background-color: lightgrey;
+}
+
+form>a
+{
+	margin : 0!important ;
+}

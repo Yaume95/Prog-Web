@@ -1,0 +1,20 @@
+.hide
+{
+	visibility: hidden;
+}
+
+.visible
+{
+	visibility: visible;
+}
+
+.navbar
+{
+	min-height: 4em;
+	margin-bottom: 0;
+	background-color: ;
+	margin-right: -20px;
+}
+
+
+
