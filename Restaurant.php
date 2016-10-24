@@ -1,9 +1,7 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-	<?php  
-	  			include("./Entete/Entete.php");
-	  			include("./BDD/Infos_Restau_bdd.php");
-		?>
+	
 
 	<head>
 		<meta charset=utf-8 />
@@ -15,6 +13,10 @@
 	</head>
 
 	<body>
+	<?php  
+	  			include("./Entete/Entete.php");
+	  			include("./BDD/Infos_Restau_bdd.php");
+		?>
 
 <div class="row text-center">
 	<label> <h1><?php echo $_GLOBALS['NomR']; ?></h1></label><br>

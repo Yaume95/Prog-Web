@@ -1,3 +1,13 @@
+	<?php
+		session_start();
+	
+		if(!isset($_SESSION['IDSESSION']) || $_SESSION['Collaborateur']==0)
+		{
+			header('Location:Acceuil.php');
+			exit();
+		}
+	?>
+
 	<!DOCTYPE html>
 	<html>
 
@@ -9,7 +19,7 @@
 			<link rel="stylesheet" href="./CSS/Styles/Liste_Membres.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-			<script src="./Scripts/Ajout_Restaurant.js"></script>
+			<script src="./Scripts/Liste_membres.js"></script>
 		</head>
 
 		<body>

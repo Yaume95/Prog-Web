@@ -1,3 +1,5 @@
+	<?php session_start(); ?>
+
 	<!DOCTYPE html>
 	<html>
 		<head>
@@ -95,8 +97,7 @@
 			</p>
 		</div>
 	</div>
-
-	<?php echo "<br>".isset($_SESSION['IDSESSION'])."<br>"; ?>
+	
 	
 
 	</body>

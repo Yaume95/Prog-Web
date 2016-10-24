@@ -17,9 +17,9 @@
 	while($i<$nbmembres)
 	{
 		echo "<tr>";
-     	echo "<td class='Pseudo'>". $membres[$i]['pseudo'] . "  -  " . $membres[$i]['prenom'] . ' ' . $membres[$i]['nom'] . "</td>";
-     	echo "<td class='Promouvoir'> Promouvoir </td>";
-     	echo "<td class='Ban'> Bannir </td>";
+     	echo "<td class='Pseudo'>". $membres[$i]['pseudo'] . "</td><td>" . $membres[$i]['prenom'] . '</td><td> ' . $membres[$i]['nom'] . "</td>";
+     	echo "<td><button class='Promouvoir'>Promouvoir</button></td>";
+     	echo "<td><button class='Ban'>Bannir</button>  </td>";
       	echo "</tr>";
 
       	$i++;

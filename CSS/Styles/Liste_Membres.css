@@ -1,11 +1,11 @@
-span.Promouvoir,span.Ban
+#titre
 {
-	cursor:pointer;
-    color:darkblue;
+	margin-bottom: 3em;
+
 }
 
-span.Promouvoir:hover, span.Ban:hover
+body
 {
-     text-decoration:none;
-     text-shadow: 1px 1px 1px #555;
+	background-color: #EAEAEA;
 }
+

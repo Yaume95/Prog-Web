@@ -1,18 +1,11 @@
-	<?php 
-		
-		include("./Entete/Entete.php"); 
-		if( empty($_SESSION['Collaborateur']) || $_SESSION['Collaborateur']==0 )
+	<?php
+		session_start();
+	
+		if(!isset($_SESSION['IDSESSION']) || $_SESSION['Collaborateur']==0)
 		{
 			header('Location:Acceuil.php');
 			exit();
-
 		}
-		else if($_SESSION['Collaborateur']==0)
-		{
-			header('Location:Acceuil.php');
-			
-		}
-	
 	?>
 
 	<!DOCTYPE html>
@@ -30,7 +23,7 @@
 
 		
 		<body>
-		
+		<?php include("./Entete/Entete.php"); ?>
 		
 		<br>
 		<h1 class="text-center"> Ajoutez vos restaurants vià cette page : </h1>

@@ -24,20 +24,21 @@
 	margin-bottom:2em; 
 }
 
-.UnResultat
-{
-	margin-top: 2em;
-	border-bottom: 2px solid darkgrey;
-}
 
 body
 {
-	background-color: lightgrey;
+	background-color: #EAEAEA;
 }
 
 label
 {
 	font-size: 15px;
+}
+
+.UnResultat
+{
+	margin-top: 2em;
+	border-bottom: 2px solid darkgrey;
 }
 
 span.NomRestau

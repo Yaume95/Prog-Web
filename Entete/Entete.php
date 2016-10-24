@@ -1,8 +1,6 @@
 <link rel="stylesheet" type="text/css" href="./CSS/Styles/Entete.css" >
 <link rel="stylesheet" href="./CSS/Styles/Formulaire.css">
-<?php 
-	session_start();
-?>
+
 
 
 <nav class="navbar navbar-inverse">
@@ -24,12 +22,12 @@
 
 					if(isset($_SESSION['IDSESSION']))
 					{
-						include("Utilisateur/utilisateur.php");
+						include("Utilisateur/Utilisateur.php");
 					}
 					else
 					{
-						include("Inscription/inscription.html");
-						include("Connection/connection.html");
+						include("Inscription/Inscription.html");
+						include("Connection/Connection.html");
 					}
 
 				?>

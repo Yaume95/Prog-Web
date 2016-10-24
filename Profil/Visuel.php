@@ -46,4 +46,4 @@
 <br>
 
 <div class="col-lg-3 col-md-3 col-sm-3"></div>
-<a href="./Modifier_Profil.php" ><button class="btn btn-primary"> <span class="glyphicons glyphicons-edit"></span> Modifier</button></a>
+<a href="./Modifier_Profil.php" ><button class='btn btn-primary'> <span class="glyphicons glyphicons-edit"></span> Modifier</button></a>

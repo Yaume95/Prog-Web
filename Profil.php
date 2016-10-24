@@ -1,3 +1,12 @@
+	<?php
+		session_start();
+		if(!isset($_SESSION['IDSESSION']))
+		{
+			header('Location:Acceuil.php');
+			exit();
+		}
+	?>
+
 <!DOCTYPE html>
 <html>
 	<head>
