@@ -66,31 +66,20 @@
 			
 		</div>
 
-		<div id="Eval" class="tab-pane fade">
+		<div id="Eval" class="tab-pane fade text-center">
 			
 			<h1></h1>
 					<div class="row phrase">
-						<label> Situé à <?php echo $_GLOBALS['Ville']; ?>, <?php echo $_GLOBALS['Adresse']; ?> - <?php echo $_GLOBALS['CP']; ?>.</label>
+						<label> Cuisine : </label>
 					</div>
 					
 					<div class="row phrase">
-						<label> Joignable par téléphone au <?php echo $_GLOBALS['Tel']; ?>.</label>
+						<label> Service : </label>
 					</div>
 
-					<div class="row phrase">
-						<label> Ce restaurant est doté d'une capacité de <?php echo $_GLOBALS['Capacite']; ?> places.</label>
-					</div>
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
 
 
 <?php

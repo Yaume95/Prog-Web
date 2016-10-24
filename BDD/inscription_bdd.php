@@ -30,13 +30,16 @@ try
 	$stmt->execute();
 
 	$dbh->commit();
+
+	header('Location:../Acceuil.php');
+	exit();
 	
 	}catch(PDOException $e)
 	{
 		print "Erreur ! : " . $e->getMessage();
 	} 
 
-	header('Location:../Acceuil.php');
+
 	
 
 	 

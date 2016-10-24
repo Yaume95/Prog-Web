@@ -78,7 +78,7 @@
 			while ($i<count($donnees) )
 			{
 				echo "<div class='row UnResultat'>";
-		     	echo "<span class='NomRestau'>". $donnees[$i]['NomR'] . "</span><span class='hide'>".$donnees[$i]['ID_R']."</span> <br>";
+		     	echo "<span class='NomRestau'>". $donnees[$i]['NomR'] . "</span><span class='hide'>". $donnees[$i]['ID_R'] . "</span> <br>";
 		     	echo "<div class='ContenuLien'>";
 		     	echo "<small><label>" . $donnees[$i]['Ville']  . '</label></small>' . '<br> ';
 		     	echo "(Spécialité : " .  $donnees[$i]['Specialite'] . ")" . "<br>";

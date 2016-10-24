@@ -15,6 +15,7 @@
                 if($_SESSION['Collaborateur']==1)
                 {
                     echo '<li><a href="Ajout_Restaurant.php"><span class="glyphicon glyphicon-plus"></span>  Ajouter un restaurant  </a></li>';
+                    echo '<li><a href="Liste_Membres.php"><span class="glyphicon glyphicon-list"></span>  Gérer les utilisateurs </a></li>';
                 }
         ?>
         <li><a href="#"><span class="glyphicon glyphicon-star"></span>  Mes favoris  </a></li>

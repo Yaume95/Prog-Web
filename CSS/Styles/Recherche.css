@@ -39,3 +39,15 @@ label
 {
 	font-size: 15px;
 }
+
+span.NomRestau
+{
+	cursor:pointer;
+    color:darkblue;
+}
+
+span.NomRestau:hover 
+{
+     text-decoration:none;
+     text-shadow: 1px 1px 1px #555;
+}

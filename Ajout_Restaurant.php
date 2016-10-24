@@ -1,13 +1,13 @@
-		<?php 
+	<?php 
 		
 		include("./Entete/Entete.php"); 
-		if/*( empty($_SESSION['Collaborateur']) || $_SESSION['Collaborateur']==0 )
+		if( empty($_SESSION['Collaborateur']) || $_SESSION['Collaborateur']==0 )
 		{
 			header('Location:Acceuil.php');
 			exit();
 
 		}
-		else if*/($_SESSION['Collaborateur']==0)
+		else if($_SESSION['Collaborateur']==0)
 		{
 			header('Location:Acceuil.php');
 			
@@ -34,8 +34,8 @@
 		
 		<br>
 		<h1 class="text-center"> Ajoutez vos restaurants vià cette page : </h1>
-		<br><br>
-		
+		<br>
+		<br>
 		
 			<form  class="form-horizontal" method="post" onsubmit="return testConfirmation()" action="./BDD/Ajout_Restaurant_bdd.php">
 				<br><br>

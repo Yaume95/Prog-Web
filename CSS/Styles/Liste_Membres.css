@@ -1,0 +1,11 @@
+span.Promouvoir,span.Ban
+{
+	cursor:pointer;
+    color:darkblue;
+}
+
+span.Promouvoir:hover, span.Ban:hover
+{
+     text-decoration:none;
+     text-shadow: 1px 1px 1px #555;
+}
