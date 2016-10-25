@@ -4,11 +4,7 @@ try
 {
 	session_start();
 	
-	$user='root';
-	$pw='';
-	$bdd='projet_web';
-	
-	$dbh= new PDO('mysql:host=127.0.0.1;dbname=' . $bdd, $user, $pw);
+	include('./Connection_BDD/Connection_serveur.php');
 	$dbh->beginTransaction();
 
 	$requete = $dbh->prepare("UPDATE membre SET nom=:nom, prenom=:prenom, email=:email, date_naissance=:datenaissance WHERE (pseudo=:pseudo)");

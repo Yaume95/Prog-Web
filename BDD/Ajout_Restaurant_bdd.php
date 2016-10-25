@@ -2,11 +2,7 @@
 
 try
 {
-	$user='root';
-	$pw='';
-	$bdd='projet_web';
-	
-	$dbh= new PDO('mysql:host=127.0.0.1;dbname=' . $bdd, $user , $pw);
+	include('./Connection_BDD/Connection_serveur.php');
 
 	$dbh->beginTransaction();
 

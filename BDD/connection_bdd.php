@@ -7,8 +7,7 @@ try
 {
 	
 	
-	$dbh= new PDO('mysql:host=127.0.0.1;dbname=projet_web','root','');
-
+	include('./Connection_BDD/Connection_serveur.php');
 	$dbh->beginTransaction();
 
 	$stmt = $dbh->prepare("SELECT pseudo,mdp,nom,prenom,email,collaborateur FROM membre WHERE (pseudo=:pseudo) AND (mdp=:mdp)	 ");

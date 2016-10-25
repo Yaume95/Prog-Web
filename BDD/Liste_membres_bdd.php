@@ -1,6 +1,6 @@
 <?php
 
-	$dbh= new PDO('mysql:host=127.0.0.1;dbname=projet_web','root','');
+	include('./BDD/Connection_BDD/Connection_serveur.php');
 
 	$dbh->beginTransaction();
 
@@ -26,7 +26,7 @@
 
 		if($membres[$i]['banni']=="0")
 		{
-     		echo "<td><button class='Ban'>Bannir</button>  </td>";
+     		echo "<td><button class='Ban'>Bannir</button></td>";
 		}
 		else if($membres[$i]['banni']=="1")
 		{

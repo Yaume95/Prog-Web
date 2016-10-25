@@ -3,12 +3,12 @@
 try
 {
 	
-	$dbh= new PDO('mysql:host=127.0.0.1;dbname=projet_web','root','');
+	include('./Connection_BDD/Connection_serveur.php');
 
 	$dbh->beginTransaction();
 	
 
-	$stmt = $dbh->prepare("INSERT INTO membre (pseudo,nom, prenom,date_naissance,email,mdp) VALUES (:pseudo,:nom,:prenom, :date_naissance, :email, :mdp");
+	$stmt = $dbh->prepare("INSERT INTO membre (pseudo,nom, prenom,date_naissance,email,mdp) VALUES (:pseudo,:nom,:prenom, :date_naissance, :email, :mdp)");
 
 	$stmt->bindParam(':pseudo', $pseudo);
 	$stmt->bindParam(':nom', $nom);
@@ -16,7 +16,7 @@ try
 	$stmt->bindParam(':mdp',$mdp);
 	$stmt->bindParam(':email', $email);
 	$stmt->bindParam(':date_naissance', $date_naissance);
-	$stmt->bindParam(':collaborateur', $collaborateur);
+	
 
 	
 	$nom=$_POST['nom'];
@@ -28,6 +28,8 @@ try
 	
 	
 	$stmt->execute();
+
+	print_r($stmt->errorInfo());
 
 	$dbh->commit();
 
