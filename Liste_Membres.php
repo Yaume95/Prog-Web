@@ -30,8 +30,8 @@
 			<h2> Voici la liste des utilisateurs : </h2>
 		</div>
 
-		<div class="col-lg-3 col-md-3 col-sm-3"></div>
-		<div class="table-responsive col-lg-6 col-md-6 col-sm-6">
+		<div class="col-lg-2 col-md-2 col-sm-2"></div>
+		<div class="table-responsive col-lg-8 col-md-8 col-sm-8">
   			<table class="table">
   				<tbody>
 					<?php include("./BDD/Liste_membres_bdd.php"); ?>

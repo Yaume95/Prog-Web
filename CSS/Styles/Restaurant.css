@@ -8,3 +8,12 @@ body
 	margin-top:15px;
 }
 
+.ligne-verticale
+{
+	border-bottom: 2px solid darkgrey;
+}
+
+.contenu
+{
+	text-align: left;
+}

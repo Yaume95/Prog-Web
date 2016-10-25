@@ -4,12 +4,11 @@
 	
 
 	<head>
-		<meta charset=utf-8 />
+		<meta charset="utf-8" />
 		<title> Restauraurant </title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./CSS/Styles/Restaurant.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
 	</head>
 
 	<body>
@@ -19,8 +18,9 @@
 		?>
 
 <div class="row text-center">
-	<label> <h1><?php echo $_GLOBALS['NomR']; ?></h1></label><br>
+	<label> <h1> <?php echo $_GLOBALS['NomR']; ?> </h1></label><br>
 </div>
+
 <br>
 <br>
 <br>
@@ -37,17 +37,9 @@
 <br>
 <br>
 
-<div class="container">
-	<ul class="nav nav-pills nav-justified red">
-		<li class="active"><a data-toggle="tab" href="#Fiche">Fiche Technique</a></li>
-		<li><a data-toggle="pill" href="#Eval">Évaluation</a></li>
-	</ul>
-
-	<div class="tab-content">
-
-		<div id="Fiche" class="tab-pane fade in active container">
-			
-			<div class="col-lg-8 col-mg-8 col-sm-8" id="Contenu">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+<div class="col-lg-8 col-md-8 col-sm-8 text-center" id="Contenu">
 					<h1></h1>
 					<div class="row phrase">
 						<label> Situé à <?php echo $_GLOBALS['Ville']; ?>, <?php echo $_GLOBALS['Adresse']; ?> - <?php echo $_GLOBALS['CP']; ?>.</label>
@@ -65,22 +57,70 @@
 						<label> Description du resurant : <?php echo $_GLOBALS['Description']; ?> </label>
 					</div>
 			</div>
-			
-		</div>
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+</div>			
 
-		<div id="Eval" class="tab-pane fade text-center">
-			
-			<h1></h1>
-					<div class="row phrase">
-						<label> Cuisine : </label>
-					</div>
-					
-					<div class="row phrase">
-						<label> Service : </label>
-					</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- ========================================  Commentaires  ======================================== -->
 
-		</div>
-	</div>
+<div class="row">
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
+	<div class="ligne-verticale col-lg-9 col-md-9 col-sm-9"></div>
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 </div>
+
+<div class="container">
+	<h2 class="text-center"> Commentaires : </h2>
+
+		<?php 
+			$i=0;
+
+			while($i<count($_GLOBALS['commentaires']))
+			{
+				list($annee,$mois,$jour)=explode('-',$_GLOBALS['commentaires'][$i]['Date']);
+
+				if($i!=0)
+				{
+					echo "<div class='row'>";
+					echo "<div class='col-lg-1 col-md-1 col-sm-1'></div>";
+					echo "<div class='ligne-verticale col-lg-9 col-md-9 col-sm-9'></div>";
+					echo "<div class='col-lg-1 col-md-1 col-sm-1'></div>";
+					echo "</div>";
+				}
+
+				echo "<div class='container'>";
+				echo "<div class='row'>";
+				echo "<div class='col-lg-1 col-md-1 col-sm-1'></div>";
+				echo "<div class='col-lg-2 col-md-2 col-sm-2'>";
+				echo "<h4>" . $_GLOBALS['commentaires'][$i]['Pseudo'] . "</h4>"; 
+				echo "<p><small><em> Le " . $jour . "/" . $mois . "/" . $annee . "</em></small></p></div>";
+				echo "<div class='col-lg-9 col-md-9 col-sm-9'></div></div>";
+
+				echo "<div class='row'>";
+				echo "<div class='col-lg-2 col-md-2 col-sm-2'></div>";
+				echo "<div class='col-lg-8 col-md-8 col-sm-8 contenu'>";
+				echo "<p>" . strip_tags($_GLOBALS['commentaires'][$i]['Contenu']) . "</p><br>";
+				echo "</div></div></div>";
+				
+				$i++;
+
+
+			}
+		?>
+</div>
+
+
+
+</body>
+</html>
 
 

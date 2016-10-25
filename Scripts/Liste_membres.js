@@ -17,4 +17,12 @@ $(document).ready(function()
 
 	});
 
+	$("button.Deban").click(function()
+	{
+
+		$pseudo=$(this).parent("td").parent("tr").children("td").eq(0).text();
+		window.location.assign('./Changer_Statut.php?Pseudo='+$pseudo+'&ban=2');
+
+	});
+
 });
