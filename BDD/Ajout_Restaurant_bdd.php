@@ -61,11 +61,6 @@ try
 	}
 
 
-	
-
-
-
-
 	$dbh->commit();
 
 	}catch(PDOException $e)

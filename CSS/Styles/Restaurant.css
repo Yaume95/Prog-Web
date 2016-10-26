@@ -37,3 +37,8 @@ hr
 {
 	border-color: grey;
 }
+
+#Sur10, #Moyenne
+{
+	font-family: impact;
+}

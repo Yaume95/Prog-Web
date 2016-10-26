@@ -46,6 +46,14 @@
 			echo "<img src='" . $AdrRestau['0']['Image'] . "' class='img-rounded img-thumbnail img-responsive'>";
 		}
 
+		$stmt = $dbh->prepare("SELECT round(avg(Note),1) as noteM FROM notes WHERE Note>=0");
+		
+		$stmt->execute();
+
+		$note = $stmt->fetchAll();
+
+		$_GLOBALS['note'] = $note['0']['noteM']; 
+
 	?>
 	
 	</div>
@@ -53,27 +61,40 @@
 
 
 <div class="row">
-<div class="col-lg-1 col-md-1 col-sm-1"></div>
-<div class="col-lg-8 col-md-8 col-sm-8" id="Contenu">
-					
-					
-					<div class="row phrase">
-						<p> Situé à <b><?php echo $_GLOBALS['Ville']; ?></b>, <b><?php echo $_GLOBALS['Adresse']; ?> - <?php echo $_GLOBALS['CP']; ?></b>.</p>
-					</div>
-					
-					<div class="row phrase">
-						<p> Joignable par téléphone au <b><?php echo $_GLOBALS['Tel']; ?></b>.</p>
-					</div>
-
-					<div class="row phrase">
-						<p> Ce restaurant est doté d'une <b>capacité de <?php echo $_GLOBALS['Capacite']; ?> places</b>.</p>
-					</div>
-					
-					<div class="row phrase">	
-						<label> Description du restaurant</label> : <?php echo $_GLOBALS['Description']; ?> </label>
-					</div>
+	<div class="col-lg-2 col-md-2 col-sm-2"></div>
+	<div class="col-lg-4 col-md-4 col-sm-4" id="Contenu">
+			<h2 > Fiche Technique :</h2><br>
+			<div class="row phrase">
+				<p> Situé à <b><?php echo $_GLOBALS['Ville']; ?></b>, <b><?php echo $_GLOBALS['Adresse']; ?> - <?php echo $_GLOBALS['CP']; ?></b>.</p>
 			</div>
-<div class="col-lg-3 col-md-3 col-sm-3"></div>
+			
+			<div class="row phrase">
+				<p> Joignable par téléphone au <b><?php echo $_GLOBALS['Tel']; ?></b>.</p>
+			</div>
+
+			<div class="row phrase">
+				<p> Ce restaurant est doté d'une <b>capacité de <?php echo $_GLOBALS['Capacite']; ?> places</b>.</p>
+			</div>
+			
+			<div class="row phrase">	
+				<label> Description du restaurant</label> : <?php echo $_GLOBALS['Description']; ?> </label>
+			</div>
+
+			<div class="row phrase">	
+				<label> Note du restaurant : </label>  <?php echo $_GLOBALS['note']; ?> </label>
+			</div>
+	</div>
+	
+	<hr>
+
+	<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+		<h2> Note :</h2>
+
+		<h1><b> <?php echo "<label id='Moyenne'>" . $_GLOBALS['note'] . "</label>" ?></b><small><label id="Sur10">/10</label></small></h1>
+	
+	</div>
+	<div class="col-lg-2 col-md-2 col-sm-2"></div>
+
 </div>			
 
 <br>
@@ -122,39 +143,12 @@
 
 	<!-- ========================================  Ajouter Commentaire  ======================================== -->
 	
-	<div >
-		<form method="post" action="./BDD/Ajout_Commentaire.php?ID_R=<?php echo $_GET['ID_R']?>">
-			<div class="form-group">
-				<div class="col-lg-5 col-md-5 col-sm-5">
-					<input type="texte" class="form-control" value="<?php echo $_SESSION['Pseudo'] ?>" disabled>
-				</div>
-				<div class="col-lg-7 col-md-7 col-sm-7">
-			</div>
-			
-			<br><br><br>	
-
-			<div class="form-group">
-				<div class="row">
-					<label class="col-lg-2 col-md-2 col-sm-2 control-label"> Commentaires :</label>
-				</div>
-				<div class="row">
-					<div class="col-lg-2 col-md-2 col-sm-2"></div>
-					<div class="col-lg-8 col-md-8 col-sm-8">
-						<textarea class="form-control" rows="5" name="NewComm" placeholder="Entrez votre commentaire ici !" required></textarea>
-					</div>
-				</div>
-			</div>
-			
-			<div class="form-group ">
-				<div class="col-lg-2 col-md-2 col-sm-2"></div>
-				<div class="col-lg-2 col-md-2 col-sm-2">
-					<input type="submit" value="Vaider" class="btn btn-primary">
-				</div>
-			</div>
-
-		</form>
-
-	</div>
+	<?php
+		if(isset($_SESSION['IDSESSION']))
+		{
+			include("./Restaurant/Ajout/Ajout_Commentaire.php");
+		}
+	?>
 
 </div>
 

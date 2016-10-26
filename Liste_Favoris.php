@@ -13,20 +13,22 @@
 
 		<head>
 			<meta charset=utf-8 />
-			<meta name="auteurs" content="Guillaume Boyer et Abdelsalem Hedhili, étudiants en 2ème année d'Ecole d'ingénieur"/>
-			<title> Gérer les utilisateurs </title>
+			<title> Mes favoris </title>
 			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			<link rel="stylesheet" href="./CSS/Styles/Liste_Membres.css">
+			<link rel="stylesheet" href="./CSS/Styles/Liste.css">
+
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 			<script src="./Scripts/Liste_membres.js"></script>
+			<script src="./Scripts/recherche.js"></script>
 		</head>
 
 		<body>
 
 		<?php include("./Entete/Entete.php"); ?> 
 
-		<div class="text-center"">
+		<div class="text-center Titre">
 			<h2> Voici la liste de vos restaurants favoris : </h2>
 		</div>
 

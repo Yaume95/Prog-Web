@@ -18,14 +18,17 @@
 	$i=0;
 	while ($i<$nbresultat )
 	{
-		echo "<div class='row UnResultat'>";
-	    echo "<button class='btn btn-link NomRestau'>". $rest[$i]['NomR'] . "</button><span class='hide'>". $rest[$i]['ID_R'] . "</span> <br>";
-		echo "<div class='ContenuLien'>";
-		echo "<small><label>" . $rest[$i]['Ville']  . '</label></small>' . '<br> ';
-		echo "(Spécialité : " .  $rest[$i]['Specialite'] . ")" . "<br>";
-		echo "N° Tel : " . $rest[$i]['Tel'];
-		echo "</div></div>";
+	
 
+
+		echo "<tr>";
+		echo "<td> <button class='btn btn-link'>". $rest[$i]['NomR'] . "</button><small><label>" . $rest[$i]['Ville'] . ", " . $rest[$i]['Tel'] . "</label></small>";
+		echo "<span class='hide'>". $rest[$i]['ID_R'] . "</span></td>";
+
+		echo "<td><button class='btn btn-warning btn-sm SupprimerFav'>Supprimer</button></td>";
+
+
+		echo "</tr>";
 		$i+=1;
 
 	}
