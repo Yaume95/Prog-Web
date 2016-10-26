@@ -17,13 +17,13 @@ try
 	
 
 	
-	$nom=$_POST['nom'];
-	$prenom=$_POST['prenom'];
-	$pseudo=$_SESSION['Pseudo'];
-	$email=$_POST['email'];
-	$datenaissance=$_POST['datenaissance'];
+	$nom=htmlspecialchars($_POST['nom'], ENT_COMPAT, 'UTF-8');
+	$prenom=htmlspecialchars($_POST['prenom'], ENT_COMPAT, 'UTF-8');
+	$pseudo=htmlspecialchars($_SESSION['Pseudo'], ENT_COMPAT, 'UTF-8');
+	$email=htmlspecialchars($_POST['email'], ENT_COMPAT, 'UTF-8');
+	$datenaissance=htmlspecialchars($_POST['datenaissance'], ENT_COMPAT, 'UTF-8');
 
-	echo $_SESSION['Pseudo'];
+	
 	
 	
 	$requete->execute();

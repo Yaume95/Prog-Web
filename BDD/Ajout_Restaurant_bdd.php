@@ -20,14 +20,14 @@ try
 
 	
 	
-	$NomR=$_POST['NomR'];
-	$Adresse=$_POST['Adresse'] ;
-	$Specialite=$_POST['Specialite'];
-	$CP=$_POST['CP'];
-	$Tel=$_POST['Tel'];
-	$Capacite=$_POST['Capacite'];
-	$Description=$_POST['Description'];
-	$Ville=$_POST['Ville'];
+	$NomR=htmlspecialchars($_POST['NomR'], ENT_COMPAT, 'UTF-8');
+	$Adresse=htmlspecialchars($_POST['Adresse'], ENT_COMPAT, 'UTF-8');
+	$Specialite=htmlspecialchars($_POST['Specialite'], ENT_COMPAT, 'UTF-8');
+	$CP=htmlspecialchars($_POST['CP'], ENT_COMPAT, 'UTF-8');
+	$Tel=htmlspecialchars($_POST['Tel'], ENT_COMPAT, 'UTF-8');
+	$Capacite=htmlspecialchars($_POST['Capacite'], ENT_COMPAT, 'UTF-8');
+	$Description=htmlspecialchars($_POST['Description'], ENT_COMPAT, 'UTF-8');
+	$Ville=htmlspecialchars($_POST['Ville'], ENT_COMPAT, 'UTF-8');
 	
 
 	$stmt->execute();
@@ -39,6 +39,6 @@ try
 		print "Erreur ! : " . $e->getMessage();
 	} 
 
-	header('Location:../Acceuil.php');
+	//header('Location:../Acceuil.php');
 	exit();
 	?>

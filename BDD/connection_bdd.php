@@ -15,8 +15,8 @@ try
 	$stmt->bindParam(':pseudo', $pseudo);
 	$stmt->bindParam(':mdp',$mdp);
 	
-	$pseudo=$_POST['pseudo'];
-	$mdp=sha1($_POST['mdp']);
+	$pseudo=htmlspecialchars( $_POST['pseudo'] );
+	$mdp=sha1( htmlspecialchars($_POST['mdp']) );
 
 	$stmt->execute();
 
