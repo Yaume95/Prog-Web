@@ -7,7 +7,7 @@ try
 	$dbh->beginTransaction();
 
 	$stmt = $dbh->prepare("INSERT INTO restaurant (NomR,Adresse,Ville,CP,Specialite,Tel,Capacite,Description) VALUES (:NomR,:Adresse,:Ville,:CP,:Specialite,:Tel,:Capacite,:Description)");
-
+	$ajoutImage = $dbh->prepare("UPDATE restaurant SET Image=:chemin WHERE NomR=:NomR");
 
 	$stmt->bindParam(':NomR', $NomR);
 	$stmt->bindParam(':Adresse', $Adresse);
@@ -17,7 +17,6 @@ try
 	$stmt->bindParam(':Tel', $Tel);
 	$stmt->bindParam(':Capacite', $Capacite);
 	$stmt->bindParam(':Description', $Description);
-
 	
 	
 	$NomR=htmlspecialchars($_POST['NomR'], ENT_COMPAT, 'UTF-8');
@@ -31,6 +30,47 @@ try
 	
 
 	$stmt->execute();
+
+	$testErreur = ($_FILES['Image']['error'] <= 0);
+	$testTaille = ($_FILES['Image']['size'] <= $_POST['MAX_FILE_SIZE']);
+
+
+	$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+	//1. strrchr renvoie l'extension avec le point (« . »).
+	//2. substr(chaine,1) ignore le premier caractère de chaine.
+	//3. strtolower met l'extension en minuscules.
+	$extension_upload = strtolower(  substr(  strrchr($_FILES['Image']['name'], '.')  ,1)  );
+	$testExtension =  in_array($extension_upload,$extensions_valides) ; // si l'extension est correcte;
+
+	if($testErreur && $testTaille && $testExtension)
+	{
+		
+
+		$ajoutImage->bindParam(':chemin', $chemin);
+		$ajoutImage->bindParam(':NomR', $NomR);
+
+		
+ 
+		$nom = "{$NomR}.{$extension_upload}";
+
+
+		$chemin= $_FILES['Image']['tmp_name'] . $nom;
+
+		
+
+		
+		echo move_uploaded_file($_FILES['Image']['tmp_name'],$nom);
+
+		/*$chemin= $_FILES['Image']['tmp_name'] . $nom;
+
+		$ajoutImage->execute();*/
+	}
+
+
+	
+
+
+
 
 	$dbh->commit();
 

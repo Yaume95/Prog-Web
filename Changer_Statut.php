@@ -10,7 +10,23 @@ try
 
 	$dbh->beginTransaction();
 
-	if($_GET['ban']=="1")
+	if($_GET['ban']=="0")
+	{
+		$stmt = $dbh->prepare("UPDATE membre SET collaborateur=1 WHERE pseudo = :pseudo");
+
+
+		$stmt->bindParam(':pseudo', $pseudo);
+
+		$pseudo=$_GET['Pseudo'];
+		
+
+		$stmt->execute();
+
+		$dbh->commit();
+
+	}
+
+	else if($_GET['ban']=="1")
 	{
 		$stmt = $dbh->prepare("UPDATE membre SET banni=1 WHERE pseudo = :pseudo");
 
@@ -28,9 +44,25 @@ try
 
 	}
 
-	else if($_GET['ban']=="0")
+	else if($_GET['ban']=="2")
 	{
-		$stmt = $dbh->prepare("UPDATE membre SET collaborateur=1 WHERE pseudo = :pseudo");
+		$stmt = $dbh->prepare("UPDATE membre SET banni=0 WHERE pseudo = :pseudo");
+
+
+		$stmt->bindParam(':pseudo', $pseudo);
+
+		$pseudo=$_GET['Pseudo'];
+		
+
+		$stmt->execute();
+
+		$dbh->commit();
+
+	}
+
+		else if($_GET['ban']=="3")
+	{
+		$stmt = $dbh->prepare("delete from membre where pseudo=:pseudo");
 
 
 		$stmt->bindParam(':pseudo', $pseudo);

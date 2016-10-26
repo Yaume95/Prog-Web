@@ -30,7 +30,7 @@
 		}
 		else if($membres[$i]['banni']=="1")
 		{
-     		echo "<td><button class='Deban'>Débannir</button>  </td>";
+     		echo "<td><button class='Deban'>Débannir</button></td>";
 		}
      	
 		echo "<td><button class='Supprimer'>Supprimer</button></td>";
