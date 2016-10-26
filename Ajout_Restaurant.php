@@ -30,7 +30,7 @@
 		<br>
 		<br>
 		
-			<form  class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return testConfirmation()" action="./BDD/Ajout_Restaurant_bdd.php">
+			<form method="post" enctype="multipart/form-data" onsubmit="return testConfirmation()" action="./BDD/Ajout_Restaurant_bdd.php">
 				<br><br>
 				
 					<div class="form-group">

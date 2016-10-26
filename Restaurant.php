@@ -22,7 +22,7 @@
 	?>
 
 	<div class="row text-center">
-		<label> <h1> <?php echo $_GLOBALS['NomR']; ?> </h1></label><br>
+		 <h1> <?php echo $_GLOBALS['NomR']; ?> </h1><small><?php  echo '<span class="hide">'.$_GET["ID_R"].'</span>(<button class="Favori btn btn-link">Ajouter aux favoris</button>)'; ?></small><br>
 	</div>
 
 
@@ -56,7 +56,7 @@
 <div class="col-lg-1 col-md-1 col-sm-1"></div>
 <div class="col-lg-8 col-md-8 col-sm-8" id="Contenu">
 					
-					<?php  echo '<span class="hide">'.$_GET["ID_R"].'</span><button class="Favori">Mettre ce restaurant en favori</button>'; ?>
+					
 					<div class="row phrase">
 						<p> Situé à <b><?php echo $_GLOBALS['Ville']; ?></b>, <b><?php echo $_GLOBALS['Adresse']; ?> - <?php echo $_GLOBALS['CP']; ?></b>.</p>
 					</div>
@@ -66,7 +66,7 @@
 					</div>
 
 					<div class="row phrase">
-						<p> Ce restaurant est doté d'une <b>capacité de <?php echo $_GLOBALS['Capacite']; ?> places.</b></p>
+						<p> Ce restaurant est doté d'une <b>capacité de <?php echo $_GLOBALS['Capacite']; ?> places</b>.</p>
 					</div>
 					
 					<div class="row phrase">	
@@ -88,7 +88,7 @@
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 </div>
 
-<div class="container BoxCommentaires">
+<div class="container" id="BoxCommentaires">
 	<h2 class="text-center"> Commentaires : </h2>
 
 		<?php 
@@ -98,37 +98,65 @@
 			{
 				list($annee,$mois,$jour)=explode('-',$_GLOBALS['commentaires'][$i]['Date']);
 
-				if($i!=0)
-				{
-					echo "<div class='row'>";
-					echo "<div class='col-lg-1 col-md-1 col-sm-1'></div>";
-					echo "<div class='ligne-verticale col-lg-9 col-md-9 col-sm-9'></div>";
-					echo "<div class='col-lg-1 col-md-1 col-sm-1'></div>";
-					echo "</div>";
-				}
+				
 
-				echo "<div class='container'>";
-				echo "<div class='row'>";
-				echo "<div class='col-lg-1 col-md-1 col-sm-1'></div>";
-				echo "<div class='col-lg-2 col-md-2 col-sm-2'>";
-				echo "<h4>" . $_GLOBALS['commentaires'][$i]['Pseudo'] . "</h4>"; 
+				echo "<div class='media'>";
+				echo "<div class=' col-lg-1 col-md-1 col-sm-1'></div>";
+				echo "<div class='media-body'>";
+				echo "<h4 class='media-heading'>" . $_GLOBALS['commentaires'][$i]['Pseudo'] . "</h4>"; 
 				echo "<p><small><em> Le " . $jour . "/" . $mois . "/" . $annee . "</em></small></p></div>";
-				echo "<div class='col-lg-9 col-md-9 col-sm-9'></div></div>";
-
+				
 				echo "<div class='row'>";
 				echo "<div class='col-lg-2 col-md-2 col-sm-2'></div>";
-				echo "<div class='col-lg-8 col-md-8 col-sm-8 contenu'>";
+				echo "<div class='col-lg-10 col-md-10 col-sm-10 contenu'>";
 				echo "<p>" . strip_tags($_GLOBALS['commentaires'][$i]['Contenu']) . "</p><br>";
-				echo "</div></div></div>";
+				echo "</div></div>";
 				
+				echo "<hr>";
 				$i++;
 
 
 			}
 		?>
+
+
+	<!-- ========================================  Ajouter Commentaire  ======================================== -->
+	
+	<div >
+		<form method="post" action="./BDD/Ajout_Commentaire.php?ID_R=<?php echo $_GET['ID_R']?>">
+			<div class="form-group">
+				<div class="col-lg-5 col-md-5 col-sm-5">
+					<input type="texte" class="form-control" value="<?php echo $_SESSION['Pseudo'] ?>" disabled>
+				</div>
+				<div class="col-lg-7 col-md-7 col-sm-7">
+			</div>
+			
+			<br><br><br>	
+
+			<div class="form-group">
+				<div class="row">
+					<label class="col-lg-2 col-md-2 col-sm-2 control-label"> Commentaires :</label>
+				</div>
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2"></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<textarea class="form-control" rows="5" name="NewComm" placeholder="Entrez votre commentaire ici !" required></textarea>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group ">
+				<div class="col-lg-2 col-md-2 col-sm-2"></div>
+				<div class="col-lg-2 col-md-2 col-sm-2">
+					<input type="submit" value="Vaider" class="btn btn-primary">
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+
 </div>
-
-
 
 </body>
 </html>

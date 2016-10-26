@@ -24,15 +24,7 @@
 			include("./Entete/Entete.php");
 		?>
 
-
-			<div class="container" id="Utilisateur">
-			<h1>
-				<img src="./CSS/Images/image_defaut.jpg" class="img-circle" alt="Photo_profil" >
-				<?php echo $_SESSION['Prénom'] . ' ' . $_SESSION['Nom']; ?>
-	   		</h1>
-	  	</div>
-
-	  	<?php  
+		<?php  
 
 		   		$dbh= new PDO('mysql:host=127.0.0.1;dbname=projet_web','root','');
 
@@ -53,20 +45,25 @@
 				$_GLOBALS['Pseudo']=$utilisateur[0]['pseudo'];
 				$_GLOBALS['Email']=$utilisateur[0]['email'];
 				$_GLOBALS['DateNaissance']=$utilisateur[0]['date_naissance'];
+				$_GLOBALS['Image']=$utilisateur[0]['ImageU'];
 
 				
 
 				
 			?>
 		
+			<div class="container" id="Utilisateur">
+			<h1>
+				<?php
+					 echo "<img src='" . $_GLOBALS['Image'] . "' class='img-circle img-thumbnail img-responsive'>";
+					 echo $_SESSION['Prénom'] . ' ' . $_SESSION['Nom']; 
+				?>
+	   		</h1>	
+	  	</div>
+
+	  	
 	
   			<?php include('Profil/Visuel.php'); ?>
-
-
-		
-
-
-
 
 	</body>
 
