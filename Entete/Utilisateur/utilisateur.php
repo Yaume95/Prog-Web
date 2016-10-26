@@ -18,7 +18,7 @@
                     echo '<li><a href="Liste_Membres.php"><span class="glyphicon glyphicon-list"></span>  Gérer les utilisateurs </a></li>';
                 }
         ?>
-        <li><a href="#"><span class="glyphicon glyphicon-star"></span>  Mes favoris  </a></li>
+        <li><a href="Liste_Favoris.php"><span class="glyphicon glyphicon-star"></span>  Mes favoris  </a></li>
         <li><a href="./Profil.php"><span class="glyphicon glyphicon-edit"></span>  Mon profil  </a></li>
       	<li class="divider"></li>
       	<li><a href="./BDD/deconnection.php"><span class="glyphicon glyphicon-log-out"></span>  Déconnection  </a></li>

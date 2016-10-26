@@ -1,6 +1,6 @@
 body
 {
-	background-color:  #EAEAEA;
+	background-color:  #F4F4F4;
 }
 
 .phrase
@@ -13,7 +13,22 @@ body
 	border-bottom: 2px solid darkgrey;
 }
 
-.contenu
+
+
+img
 {
-	text-align: left;
+	width:90%;
+	max-height: 600px;
+
 }
+
+#Imagerestau
+{
+	margin-bottom: 3em;
+}
+
+#BoxCommentaires
+{
+	border :1px solid 
+}
+

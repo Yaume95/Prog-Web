@@ -8,6 +8,8 @@
 			<title>Acceuil</title>
 			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 			<link rel="stylesheet" href="./CSS/Styles/Acceuil.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		</head>
 
 		<body>
@@ -31,46 +33,12 @@
 		</div>
 
 		
-		<!--============================ Carrousel ======================= -->
+		<!--============================ Image ======================= -->
 
-		<div id="CarrouselAcceuil" class="carousel slide" data-ride="carousel">
-
-      <!-- Indicateurs -->
-      <ol class="carousel-indicators">
-        <li data-target="#CarrouselAcceuil" data-slide-to="0" class="active"></li>
-        <li data-target="#CarrouselAcceuil" data-slide-to="1"></li>
-        <li data-target="#CarrouselAcceuil" data-slide-to="2"></li>
-      </ol>
-
-
-      <div class="carousel-inner" role="listbox">
-      	<!-- ==== Slide n°1 ==== -->
-        <div class="item active">
-          <img src="./CSS/Images/restaurant1.jpg" alt="Image1">
+        <div id="ImageAccueil">
+          <img src="./CSS/Images/restaurant3.jpg" alt="Image" class='img-responsive img-rounded'>
         </div>
 
-        <!-- ==== Slide n°2 ==== -->
-        <div class="item">
-          <img src="./CSS/Images/restaurant2.jpg" alt="Image2">
-        </div>
-
-        <!-- ==== Slide n°3 ==== -->
-        <div class="item">
-          <img src="./CSS/Images/restaurant3.jpg" alt="Image3">
-
-        </div>
-      </div>
-
-      <!-- ==== Chevrons Précédent/Suivant ==== -->
-      <a class="left carousel-control" href="#CarrouselAcceuil" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Précédent</span>
-      </a>
-      <a class="right carousel-control" href="#CarrouselAcceuil" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Suivant</span>
-      </a>
-    </div>
 
     <!-- ==================== Corps de la page ==================== -->
 

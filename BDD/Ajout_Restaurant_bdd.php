@@ -51,19 +51,13 @@ try
 
 		
  
-		$nom = "{$NomR}.{$extension_upload}";
+		$nom = "../CSS/Images/Restaurant/{$NomR}.{$extension_upload}";
 
-
-		$chemin= $_FILES['Image']['tmp_name'] . $nom;
-
-		
-
-		
 		echo move_uploaded_file($_FILES['Image']['tmp_name'],$nom);
 
-		/*$chemin= $_FILES['Image']['tmp_name'] . $nom;
+		$chemin="./CSS/Images/Restaurant/{$NomR}.{$extension_upload}";
 
-		$ajoutImage->execute();*/
+		$ajoutImage->execute();
 	}
 
 
@@ -79,6 +73,6 @@ try
 		print "Erreur ! : " . $e->getMessage();
 	} 
 
-	//header('Location:../Acceuil.php');
+	header('Location:../Acceuil.php');
 	exit();
 	?>

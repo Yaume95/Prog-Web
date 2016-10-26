@@ -25,7 +25,7 @@ $(document).ready(function()
 
 	});
 
-		$("button.Supprimer").click(function()
+	$("button.Supprimer").click(function()
 	{
 
 		$pseudo=$(this).parent("td").parent("tr").children("td").eq(0).text();

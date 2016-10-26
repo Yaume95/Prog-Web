@@ -62,7 +62,7 @@ try
 
 		else if($_GET['ban']=="3")
 	{
-		$stmt = $dbh->prepare("delete from membre where pseudo=:pseudo");
+		$stmt = $dbh->prepare("DELETE FROM membre WHERE pseudo=:pseudo");
 
 
 		$stmt->bindParam(':pseudo', $pseudo);
