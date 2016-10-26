@@ -55,7 +55,7 @@
 			<div class="container" id="Utilisateur">
 			<h1>
 				<?php
-					 echo "<img src='" . $_GLOBALS['Image'] . "' class='img-circle img-thumbnail img-responsive'>";
+					 echo "<img src='" . $_GLOBALS['Image'] . "' class='img-circle img-thumbnail img-responsive' width='150' height='150'>";
 					 echo $_SESSION['Prénom'] . ' ' . $_SESSION['Nom']; 
 				?>
 	   		</h1>	

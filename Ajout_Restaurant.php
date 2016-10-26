@@ -157,7 +157,7 @@
 				<div class="form-group">
 					<div class="col-lg-2 col-md-2 col-sm-2"></div>
 					<label class="col-lg-2 col-md-2 col-sm-2 control-label" for="Image">  Image :</label>
-					<div class="col-lg-4 col-md-4 col-sm-4"><input type="file" name="Image"> <input type="hidden" name="MAX_FILE_SIZE" value="1048576" /></div>
+					<div class="col-lg-4 col-md-4 col-sm-4 upload"><input type="file" name="Image"/> <input type="hidden" name="MAX_FILE_SIZE" value="1048576" /></div>
 				</div>
 
 				<br><br>	

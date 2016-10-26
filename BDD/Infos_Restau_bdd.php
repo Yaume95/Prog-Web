@@ -6,7 +6,7 @@
 
 	$requete1 = $dbh->prepare("SELECT * FROM restaurant WHERE (ID_R=:ID_R)");
 
-	$requete2 = $dbh->prepare("SELECT * FROM commentaire WHERE (ID_R=:ID_R) ORDER BY Date");
+	$requete2 = $dbh->prepare("SELECT * FROM commentaire WHERE (ID_R=:ID_R) ORDER BY Date");		// RAJOUTER AND WHRE BANNI =0
 
 
 	$requete1->bindParam(':ID_R', $ID_R);

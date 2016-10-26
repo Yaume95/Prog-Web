@@ -12,15 +12,15 @@ try
 
 	if($_GET['ban']=="0")
 	{
-		$stmt = $dbh->prepare("UPDATE membre SET collaborateur=1 WHERE pseudo = :pseudo");
+		$requete = $dbh->prepare("UPDATE membre SET collaborateur=1 WHERE pseudo = :pseudo");
 
 
-		$stmt->bindParam(':pseudo', $pseudo);
+		$requete->bindParam(':pseudo', $pseudo);
 
 		$pseudo=$_GET['Pseudo'];
 		
 
-		$stmt->execute();
+		$requete->execute();
 
 		$dbh->commit();
 
@@ -28,17 +28,14 @@ try
 
 	else if($_GET['ban']=="1")
 	{
-		$stmt = $dbh->prepare("UPDATE membre SET banni=1 WHERE pseudo = :pseudo");
-
+		$requete = $dbh->prepare("UPDATE membre SET banni=1 WHERE pseudo = :pseudo");
 
 		
-		$stmt->bindParam(':pseudo', $pseudo);
-
+		$requete->bindParam(':pseudo', $pseudo);	
 		$pseudo=$_GET['Pseudo'];
 		
 
-
-		$stmt->execute();
+		$requete->execute();
 
 		$dbh->commit();
 
@@ -46,15 +43,15 @@ try
 
 	else if($_GET['ban']=="2")
 	{
-		$stmt = $dbh->prepare("UPDATE membre SET banni=0 WHERE pseudo = :pseudo");
+		$requete = $dbh->prepare("UPDATE membre SET banni=0 WHERE pseudo = :pseudo");
 
 
-		$stmt->bindParam(':pseudo', $pseudo);
+		$requete->bindParam(':pseudo', $pseudo);
 
 		$pseudo=$_GET['Pseudo'];
 		
 
-		$stmt->execute();
+		$requete->execute();
 
 		$dbh->commit();
 
@@ -62,15 +59,24 @@ try
 
 		else if($_GET['ban']=="3")
 	{
-		$stmt = $dbh->prepare("DELETE FROM membre WHERE pseudo=:pseudo");
+		$requete = $dbh->prepare("DELETE FROM membre WHERE pseudo=:pseudo");
+		$requete2 = $dbh->prepare("DELETE FROM favoris WHERE pseudo=:pseudo");
+		$requete3 = $dbh->prepare("DELETE FROM commentaire WHERE Pseudo=:pseudo");
+		$requete4 = $dbh->prepare("DELETE FROM notes WHERE Pseudo=:pseudo");
 
 
-		$stmt->bindParam(':pseudo', $pseudo);
+		$requete->bindParam(':pseudo', $pseudo);
+		$requete2->bindParam(':pseudo', $pseudo);
+		$requete3->bindParam(':pseudo', $pseudo);
+		$requete4->bindParam(':pseudo', $pseudo);
 
 		$pseudo=$_GET['Pseudo'];
 		
 
-		$stmt->execute();
+		$requete->execute();
+		$requete2->execute();
+		$requete3->execute();
+		$requete4->execute();
 
 		$dbh->commit();
 

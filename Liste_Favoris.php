@@ -1,7 +1,7 @@
 <?php
 		session_start();
 	
-		if(!isset($_SESSION['IDSESSION']) || $_SESSION['Collaborateur']==0)
+		if(!isset($_SESSION['IDSESSION']))
 		{
 			header('Location:Acceuil.php');
 			exit();

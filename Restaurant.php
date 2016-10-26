@@ -15,52 +15,89 @@
 	</head>
 
 	<body>
-
+<!-- ====================== Entete + récupération données du restaurant ========================-->
 	<?php  
 	  			include("./Entete/Entete.php");
 	  			include("./BDD/Infos_Restau_bdd.php");
 	?>
 
+<!-- ========================= Affichage nom restaurant + Ajout favoris ======================-->
+
 	<div class="row text-center">
-		 <h1> <?php echo $_GLOBALS['NomR']; ?> </h1><small><?php  echo '<span class="hide">'.$_GET["ID_R"].'</span>(<button class="Favori btn btn-link">Ajouter aux favoris</button>)'; ?></small><br>
+		 <h1> <?php echo $_GLOBALS['NomR']; ?> </h1>
+		 <small>
+		 	<?php  
+
+		 			$requete = $dbh->prepare("SELECT Image FROM restaurant WHERE NomR=:NomR");
+					$requete->bindParam(":NomR", $_GLOBALS['NomR']);
+					$requete->execute();
+
+					$AdrRestau = $requete->fetchAll();
+
+		 			$ID_R=intval($_GET['ID_R']);
+
+					$requete2 = $dbh->prepare("SELECT COUNT(*) AS nb,round(avg(Note),1) AS noteM FROM notes WHERE Note>=0 and ID_R=:ID_R");
+					$requete3 = $dbh->prepare("SELECT * FROM notes WHERE Pseudo=:Pseudo and ID_R=:ID_R");
+					$requete4 = $dbh->prepare("SELECT * FROM favoris WHERE Pseudo=:Pseudo and ID_R=:ID_R");
+
+			        $requete2->bindParam(":ID_R", $ID_R);
+			        $requete2->execute();
+
+			        $requete3->bindParam(":ID_R", $ID_R);
+			        $requete3->bindParam(":Pseudo",$_SESSION['Pseudo']);
+			        $requete3->execute();
+
+			        $requete4->bindParam(":ID_R", $ID_R);
+			        $requete4->bindParam(":Pseudo",$_SESSION['Pseudo']);
+			        $requete4->execute();
+
+			        $note = $requete2->fetchAll();
+
+			        $_GLOBALS['note'] = $note['0']['noteM']; 
+			        $_GLOBALS['NbNotes'] = $note['0']['nb'];
+			        $ANote = count( $requete3->fetchAll());
+			        $Dejafavoris = count( $requete4->fetchAll());
+
+
+		 			echo '<span class="hide">'. $_GET["ID_R"] . '</span>';
+				   	if(isset($_SESSION['IDSESSION']) )
+				   	{
+				   		if($Dejafavoris==0)
+				   		{
+				   			echo '(<button class="Favori btn btn-link">Ajouter aux favoris</button>)';	
+				   		}
+				   		else
+				   		{
+				   			echo '(<button class="Favori btn btn-link"> Retirer des favoris</button>)';
+				   		}
+				   	} 
+		 	?>	
+		 </small>
+
+		 	<br>
 	</div>
 
+<!-- ===================== Image du restaurant  ============================== -->
 
 	<div class="col-lg-12 col-md-12 col-sm-12 text-center" id="Imagerestau">
 
 	<?php
 		include("./BDD/Connection_BDD/Connection_serveur.php");
 
-		$requete = $dbh->prepare("SELECT Image FROM restaurant WHERE NomR=:NomR");
-
-		$requete->bindParam(":NomR", $_GLOBALS['NomR']);
 		
-
-		$requete->execute();
-
-		$AdrRestau = $requete->fetchAll();
-
 
 		if($AdrRestau['0']['Image']!= NULL)
 		{
 			echo "<img src='" . $AdrRestau['0']['Image'] . "' class='img-rounded img-thumbnail img-responsive'>";
 		}
 
-		$requete2 = $dbh->prepare("SELECT count(*) AS nb,round(avg(Note),1) AS noteM FROM notes WHERE Note>=0 and ID_R=:ID_R");
-
-        $requete2->bindParam(":ID_R", $_GET['ID_R']);
-        $requete2->execute();
-
-        $note = $requete2->fetchAll();
-
-        $_GLOBALS['note'] = $note['0']['noteM']; 
-        $_GLOBALS['NbNotes'] = $note['0']['nb'];
+		
 
 	?>
 	
 	</div>
 
-
+<!-- ===============================  Fiche Technique // Note  =============================== -->
 
 <div class="row">
 	<div class="col-lg-2 col-md-2 col-sm-2"></div>
@@ -89,8 +126,15 @@
 	
 	<hr>
 
-	<?php if($_GLOBALS['NbNotes']>0) include("./Restaurant/Note.php"); 
-		  else include("./Restaurant/Noter.php");
+	<?php if(isset($_SESSION['IDSESSION']))
+	{
+		if($ANote==0)
+		{
+			include("./Restaurant/Noter.php");
+		}
+		else if($_GLOBALS['NbNotes']>0) include("./Restaurant/Note.php");
+	} 
+	else if($_GLOBALS['NbNotes']>0) include("./Restaurant/Note.php");
 	?>
 	
 
@@ -104,7 +148,7 @@
 
 <div class="row">
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
-	<div class="ligne-verticale col-lg-9 col-md-9 col-sm-9"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10"><hr></div>
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 </div>
 
@@ -121,7 +165,7 @@
 				list($annee,$mois,$jour)=explode('-',$_GLOBALS['commentaires'][$i]['Date']);				
 
 				echo "<div class='media'>";
-				echo "<div class=' col-lg-1 col-md-1 col-sm-1'></div>";
+				
 				echo "<div class='media-body'>";
 				echo "<h4 class='media-heading'>" . $_GLOBALS['commentaires'][$i]['Pseudo'] . "</h4>"; 
 				echo "<p><small><em> Le " . $jour . "/" . $mois . "/" . $annee . "</em></small></p></div>";
