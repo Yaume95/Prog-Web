@@ -21,7 +21,7 @@
 			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 			<script src="./Scripts/Liste_membres.js"></script>
-			<script src="./Scripts/recherche.js"></script>
+			<script src="./Scripts/sup_favori.js"></script>
 		</head>
 
 		<body>

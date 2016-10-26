@@ -22,7 +22,7 @@
 
 
 		echo "<tr>";
-		echo "<td> <button class='btn btn-link'>". $rest[$i]['NomR'] . "</button><small><label>" . $rest[$i]['Ville'] . ", " . $rest[$i]['Tel'] . "</label></small>";
+		echo "<td> <button class='btn btn-link NomRestau'>". $rest[$i]['NomR'] . "</button><small><label>" . $rest[$i]['Ville'] . ", " . $rest[$i]['Tel'] . "</label></small>";
 		echo "<span class='hide'>". $rest[$i]['ID_R'] . "</span></td>";
 
 		echo "<td><button class='btn btn-warning btn-sm SupprimerFav'>Supprimer</button></td>";

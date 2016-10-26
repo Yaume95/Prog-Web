@@ -82,7 +82,7 @@ try
 	}
 
 	
-	header('Location:./Liste_Membres.php');
+	header('Location:../Liste_Membres.php');
 	exit();
 
 	

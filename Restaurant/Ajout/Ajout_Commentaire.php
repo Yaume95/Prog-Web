@@ -1,6 +1,7 @@
 <div >
 		<form method="post" action="./BDD/Ajout_Commentaire_bdd.php?ID_R=<?php echo $_GET['ID_R']?>">
 			<div class="form-group">
+			<div class="col-lg-2 col-md-2 col-sm-2"></div>
 				<div class="col-lg-5 col-md-5 col-sm-5">
 					<input type="texte" class="form-control" value="<?php echo $_SESSION['Pseudo'] ?>" disabled>
 				</div>
@@ -11,6 +12,7 @@
 
 			<div class="form-group">
 				<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-2"></div>
 					<label class="col-lg-2 col-md-2 col-sm-2 control-label"> Commentaires :</label>
 				</div>
 				<div class="row">

@@ -4,7 +4,7 @@
 	
 
 	<head>
-		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title> Restauraurant </title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./CSS/Styles/Restaurant.css">
@@ -46,13 +46,15 @@
 			echo "<img src='" . $AdrRestau['0']['Image'] . "' class='img-rounded img-thumbnail img-responsive'>";
 		}
 
-		$stmt = $dbh->prepare("SELECT round(avg(Note),1) as noteM FROM notes WHERE Note>=0");
-		
-		$stmt->execute();
+		$requete2 = $dbh->prepare("SELECT count(*) AS nb,round(avg(Note),1) AS noteM FROM notes WHERE Note>=0 and ID_R=:ID_R");
 
-		$note = $stmt->fetchAll();
+        $requete2->bindParam(":ID_R", $_GET['ID_R']);
+        $requete2->execute();
 
-		$_GLOBALS['note'] = $note['0']['noteM']; 
+        $note = $requete2->fetchAll();
+
+        $_GLOBALS['note'] = $note['0']['noteM']; 
+        $_GLOBALS['NbNotes'] = $note['0']['nb'];
 
 	?>
 	
@@ -87,13 +89,10 @@
 	
 	<hr>
 
-	<div class="col-lg-4 col-md-4 col-sm-4 text-center">
-		<h2> Note :</h2>
-
-		<h1><b> <?php echo "<label id='Moyenne'>" . $_GLOBALS['note'] . "</label>" ?></b><small><label id="Sur10">/10</label></small></h1>
+	<?php if($_GLOBALS['NbNotes']>0) include("./Restaurant/Note.php"); 
+		  else include("./Restaurant/Noter.php");
+	?>
 	
-	</div>
-	<div class="col-lg-2 col-md-2 col-sm-2"></div>
 
 </div>			
 
@@ -112,14 +111,14 @@
 <div class="container" id="BoxCommentaires">
 	<h2 class="text-center"> Commentaires : </h2>
 
+	<br>
+
 		<?php 
 			$i=0;
 
 			while($i<count($_GLOBALS['commentaires']))
 			{
-				list($annee,$mois,$jour)=explode('-',$_GLOBALS['commentaires'][$i]['Date']);
-
-				
+				list($annee,$mois,$jour)=explode('-',$_GLOBALS['commentaires'][$i]['Date']);				
 
 				echo "<div class='media'>";
 				echo "<div class=' col-lg-1 col-md-1 col-sm-1'></div>";
@@ -151,6 +150,8 @@
 	?>
 
 </div>
+
+<?php unset($_GLOBALS); ?>
 
 </body>
 </html>

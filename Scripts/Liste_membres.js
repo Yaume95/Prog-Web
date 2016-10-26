@@ -5,7 +5,7 @@ $(document).ready(function()
 	{
 
 		$pseudo=$(this).parent("td").parent("tr").children("td").eq(0).text();
-		window.location.assign('./Changer_Statut.php?Pseudo='+$pseudo+'&ban=0');
+		window.location.assign('./BDD/Changer_Statut_bdd.php?Pseudo='+$pseudo+'&ban=0');
 
 	});
 
@@ -13,7 +13,7 @@ $(document).ready(function()
 	{
 
 		$pseudo=$(this).parent("td").parent("tr").children("td").eq(0).text();
-		window.location.assign('./Changer_Statut.php?Pseudo='+$pseudo+'&ban=1');
+		window.location.assign('./BDD/Changer_Statut_bdd.php?Pseudo='+$pseudo+'&ban=1');
 
 	});
 
@@ -21,7 +21,7 @@ $(document).ready(function()
 	{
 
 		$pseudo=$(this).parent("td").parent("tr").children("td").eq(0).text();
-		window.location.assign('./Changer_Statut.php?Pseudo='+$pseudo+'&ban=2');
+		window.location.assign('./BDD/Changer_Statut_bdd.php?Pseudo='+$pseudo+'&ban=2');
 
 	});
 
@@ -29,7 +29,7 @@ $(document).ready(function()
 	{
 
 		$pseudo=$(this).parent("td").parent("tr").children("td").eq(0).text();
-		window.location.assign('./Changer_Statut.php?Pseudo='+$pseudo+'&ban=3');
+		window.location.assign('./BDD/Changer_Statut_bdd.php?Pseudo='+$pseudo+'&ban=3');
 
 	});
 
