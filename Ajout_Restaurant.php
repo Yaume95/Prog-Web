@@ -3,7 +3,7 @@
 	
 		if(!isset($_SESSION['IDSESSION']) || $_SESSION['Collaborateur']==0)
 		{
-			header('Location:Acceuil.php');
+			header('Location:Accueil.php');
 			exit();
 		}
 	?>

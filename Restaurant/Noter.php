@@ -1,5 +1,5 @@
 <div class="">
-	<h2> Vous souhaitez noter ce restaurant :</h2>
+	<h2 > Vous souhaitez noter ce restaurant :</h2>
 		<div class="col-lg-1 col-md-1 col-sm-1"></div>
 
 	<form method="post" action="./BDD/Ajouter_Note_bdd.php?ID_R=<?php echo intval($_GET['ID_R']); ?>"  class="form-horizontal col-lg-4 col-md-4 col-sm-1 ">

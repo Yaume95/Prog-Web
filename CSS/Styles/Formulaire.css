@@ -27,7 +27,7 @@
 
 }
 
-h3
+.TitreForm
 {
 	color: #4F9DCA;
 }
@@ -47,8 +47,3 @@ h3
 }
 
 
-/* ATTENTION  : modif de taille de la checkbox UNIQUEMENT SUR CHROME/SAFARI */
-input[type=checkbox]
-{
-	-webkit-transform: scale(2);
-}

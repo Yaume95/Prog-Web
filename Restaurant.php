@@ -5,7 +5,7 @@
 
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title> Restauraurant </title>
+		<title> Restaurant </title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./CSS/Styles/Restaurant.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -71,7 +71,7 @@
 				   		}
 				   		else
 				   		{
-				   			echo '(<button class="Favori btn btn-link"> Retirer des favoris</button>)';
+				   			echo '(<button class="FavoriR btn btn-link"> Retirer des favoris</button>)';
 				   		}
 				   	} 
 		 	?>	
@@ -161,19 +161,27 @@
 
 			while($i<count($commentaires))
 			{
-				list($annee,$mois,$jour)=explode('-',$commentaires[$i]['Date']);				
+								
 
-				echo "<div class='media'>";
-				
-				echo "<div class='media-body'>";
-				echo "<h4 class='media-heading'>" . $commentaires[$i]['Pseudo'] . "</h4>"; 
-				echo "<p><small><em> Le " . $jour . "/" . $mois . "/" . $annee . "</em></small></p></div>";
-				
-				echo "<div class='row'>";
-				echo "<div class='col-lg-2 col-md-2 col-sm-2'></div>";
-				echo "<div class='col-lg-10 col-md-10 col-sm-10 contenu'>";
-				echo "<p>" . strip_tags($commentaires[$i]['Contenu']) . "</p><br>";
-				echo "</div></div>";
+				echo '<div class="media">
+					  	  <div class="media-left">
+					  	  	  <img src="./CSS/Images/Utilisateurs/image_defaut.jpg" alt="test"> 
+						  </div>
+
+						  <div class="media-body">
+	   					  	  <h3 class="media-heading">' . $commentaires[$i]["Pseudo"] . '</h3>
+	   					  	  <p><small><em> Le ' . $commentaires[$i]["Date"] . '</em></small></p><br>
+	   						  <p>' . strip_tags($commentaires[$i]['Contenu']) . '</p>
+	 					   </div>';
+	 					   if(isset($_SESSION['Collaborateur']))
+	 					   	{
+	 					   		if($_SESSION['Collaborateur']==1)
+			 					   echo '<div class="media-right">
+								      <button class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></button>
+								   </div>';
+							}
+
+				echo ' </div>';
 				
 				echo "<hr>";
 				$i++;

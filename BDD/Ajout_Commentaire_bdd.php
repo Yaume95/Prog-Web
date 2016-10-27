@@ -9,7 +9,9 @@
 
 	$id = intval($_GET['ID_R']);
 	$pseudo = htmlspecialchars($_SESSION['Pseudo']);
-	$date = date("Y-m-d");
+	$date = date("d/m/Y") . " à " . date("H:i");
+
+
 	$contenu = htmlspecialchars($_POST['NewComm']);
 
 

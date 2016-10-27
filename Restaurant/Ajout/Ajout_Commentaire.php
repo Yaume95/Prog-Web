@@ -26,7 +26,7 @@
 			<div class="form-group ">
 				<div class="col-lg-2 col-md-2 col-sm-2"></div>
 				<div class="col-lg-2 col-md-2 col-sm-2">
-					<input type="submit" value="Vaider" class="btn btn-primary">
+					<input type="submit" value="Valider" class="btn btn-primary">
 				</div>
 			</div>
 

@@ -1,12 +1,14 @@
 <?php
 
+	if($_SESSION['Collaborateur']==0)
+	{
+		header('Location:../Accueil.php');
+	}
+
 try
 {
-	$user='root';
-	$pw='';
-	$bdd='projet_web';
 	
-	$dbh= new PDO('mysql:host=127.0.0.1;dbname=' . $bdd, $user , $pw);
+	include('./Connection_BDD/Connection_serveur.php');
 
 	$dbh->beginTransaction();
 
@@ -57,7 +59,7 @@ try
 
 	}
 
-		else if($_GET['ban']=="3")
+	else if($_GET['ban']=="3")
 	{
 		$requete = $dbh->prepare("DELETE FROM membre WHERE pseudo=:pseudo");
 		$requete2 = $dbh->prepare("DELETE FROM favoris WHERE pseudo=:pseudo");

@@ -47,3 +47,9 @@ hr
 {
 	margin-bottom: 12em;
 }
+
+#Moyenne, #Sur10
+{
+	color: grey;
+}
+
