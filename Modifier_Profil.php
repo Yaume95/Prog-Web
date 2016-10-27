@@ -32,19 +32,22 @@
 
 			$utilisateur=$requete->fetchAll();
 
-			$_GLOBALS['Prénom']=$utilisateur[0]['prenom'];
-			$_GLOBALS['Nom']=$utilisateur[0]['nom'];
-			$_GLOBALS['Pseudo']=$utilisateur[0]['pseudo'];
-			$_GLOBALS['Email']=$utilisateur[0]['email'];
-			$_GLOBALS['DateNaissance']=$utilisateur[0]['date_naissance'];
+			$Prenom=$utilisateur[0]['prenom'];
+			$Nom=$utilisateur[0]['nom'];
+			$Pseudo=$utilisateur[0]['pseudo'];
+			$Email=$utilisateur[0]['email'];
+			$DateNaissance=$utilisateur[0]['date_naissance'];
+			$Image=$utilisateur[0]['ImageU'];
 
 		?>
 		
 
 		<div class="container" id="Utilisateur">
 		<h1>
-			<img src="./CSS/Images/image_defaut.jpg" class="img-circle" alt="Photo_profil" >
-			<?php echo $_SESSION['Prénom'] . ' ' . $_SESSION['Nom']; ?>
+			<?php
+					 echo "<img src='" . $Image . "' class='img-circle img-thumbnail img-responsive' width='150' height='150'>";
+					 echo $_SESSION['Prénom'] . ' ' . $_SESSION['Nom']; 
+				?>
    		</h1>
 	  	</div>
 	

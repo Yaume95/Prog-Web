@@ -24,15 +24,15 @@
 <!-- ========================= Affichage nom restaurant + Ajout favoris ======================-->
 
 	<div class="row text-center">
-		 <h1> <?php echo $_GLOBALS['NomR']; ?> </h1>
+		 <h1> <?php echo $NomR; ?> </h1>
 		 <small>
 		 	<?php  
 
 		 			$requete = $dbh->prepare("SELECT Image FROM restaurant WHERE NomR=:NomR");
-					$requete->bindParam(":NomR", $_GLOBALS['NomR']);
+					$requete->bindParam(":NomR", $NomR);
 					$requete->execute();
 
-					$AdrRestau = $requete->fetchAll();
+					$Adr = $requete->fetchAll();
 
 		 			$ID_R=intval($_GET['ID_R']);
 
@@ -53,10 +53,13 @@
 
 			        $note = $requete2->fetchAll();
 
-			        $_GLOBALS['note'] = $note['0']['noteM']; 
-			        $_GLOBALS['NbNotes'] = $note['0']['nb'];
+			        $noteM = $note['0']['noteM'];
+			       
+
+			        $NbNotes= $note['0']['nb'];
 			        $ANote = count( $requete3->fetchAll());
 			        $Dejafavoris = count( $requete4->fetchAll());
+			        $AdrRestau =$Adr['0']['Image'];
 
 
 		 			echo '<span class="hide">'. $_GET["ID_R"] . '</span>';
@@ -86,9 +89,9 @@
 
 		
 
-		if($AdrRestau['0']['Image']!= NULL)
+		if($AdrRestau!= NULL)
 		{
-			echo "<img src='" . $AdrRestau['0']['Image'] . "' class='img-rounded img-thumbnail img-responsive'>";
+			echo "<img src='" . $AdrRestau. "' class='img-rounded'>";
 		}
 
 		
@@ -104,23 +107,19 @@
 	<div class="col-lg-4 col-md-4 col-sm-4" id="Contenu">
 			<h2 > Fiche Technique :</h2><br>
 			<div class="row phrase">
-				<p> Situé à <b><?php echo $_GLOBALS['Ville']; ?></b>, <b><?php echo $_GLOBALS['Adresse']; ?> - <?php echo $_GLOBALS['CP']; ?></b>.</p>
+				<p> Situé à <b><?php echo $Ville; ?></b>, <b><?php echo $Adresse; ?> - <?php echo $CP; ?></b>.</p>
 			</div>
 			
 			<div class="row phrase">
-				<p> Joignable par téléphone au <b><?php echo $_GLOBALS['Tel']; ?></b>.</p>
+				<p> Joignable par téléphone au <b><?php echo $Tel; ?></b>.</p>
 			</div>
 
 			<div class="row phrase">
-				<p> Ce restaurant est doté d'une <b>capacité de <?php echo $_GLOBALS['Capacite']; ?> places</b>.</p>
+				<p> Ce restaurant est doté d'une <b>capacité de <?php echo $Capacite; ?> places</b>.</p>
 			</div>
 			
 			<div class="row phrase">	
-				<label> Description du restaurant</label> : <?php echo $_GLOBALS['Description']; ?> </label>
-			</div>
-
-			<div class="row phrase">	
-				<label> Note du restaurant : </label>  <?php echo $_GLOBALS['note']; ?> </label>
+				<label> Description du restaurant</label> : <?php echo $Description; ?> </label>
 			</div>
 	</div>
 	
@@ -132,9 +131,9 @@
 		{
 			include("./Restaurant/Noter.php");
 		}
-		else if($_GLOBALS['NbNotes']>0) include("./Restaurant/Note.php");
+		else if($NbNotes>0) include("./Restaurant/Note.php");
 	} 
-	else if($_GLOBALS['NbNotes']>0) include("./Restaurant/Note.php");
+	else if($NbNotes>0) include("./Restaurant/Note.php");
 	?>
 	
 
@@ -160,20 +159,20 @@
 		<?php 
 			$i=0;
 
-			while($i<count($_GLOBALS['commentaires']))
+			while($i<count($commentaires))
 			{
-				list($annee,$mois,$jour)=explode('-',$_GLOBALS['commentaires'][$i]['Date']);				
+				list($annee,$mois,$jour)=explode('-',$commentaires[$i]['Date']);				
 
 				echo "<div class='media'>";
 				
 				echo "<div class='media-body'>";
-				echo "<h4 class='media-heading'>" . $_GLOBALS['commentaires'][$i]['Pseudo'] . "</h4>"; 
+				echo "<h4 class='media-heading'>" . $commentaires[$i]['Pseudo'] . "</h4>"; 
 				echo "<p><small><em> Le " . $jour . "/" . $mois . "/" . $annee . "</em></small></p></div>";
 				
 				echo "<div class='row'>";
 				echo "<div class='col-lg-2 col-md-2 col-sm-2'></div>";
 				echo "<div class='col-lg-10 col-md-10 col-sm-10 contenu'>";
-				echo "<p>" . strip_tags($_GLOBALS['commentaires'][$i]['Contenu']) . "</p><br>";
+				echo "<p>" . strip_tags($commentaires[$i]['Contenu']) . "</p><br>";
 				echo "</div></div>";
 				
 				echo "<hr>";
@@ -195,7 +194,6 @@
 
 </div>
 
-<?php unset($_GLOBALS); ?>
 
 </body>
 </html>

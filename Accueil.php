@@ -7,7 +7,7 @@
 			<meta name="auteurs" content="Guillaume Boyer et Abdelsalem Hedhili, étudiants en 2ème année d'Ecole d'ingénieur"/>
 			<title>Acceuil</title>
 			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			<link rel="stylesheet" href="./CSS/Styles/Acceuil.css">
+			<link rel="stylesheet" href="./CSS/Styles/Accueil.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		</head>

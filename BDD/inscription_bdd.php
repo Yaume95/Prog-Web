@@ -33,7 +33,7 @@ try
 
 	$dbh->commit();
 
-	header('Location:../Acceuil.php');
+	header('Location:../Accueil.php');
 	exit();
 	
 	}catch(PDOException $e)

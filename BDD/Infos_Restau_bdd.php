@@ -19,17 +19,17 @@
 	$restaurant=$requete1->fetchAll();
 
 
-	$_GLOBALS['NomR']=$restaurant[0]['NomR'];
-	$_GLOBALS['Adresse']=$restaurant[0]['Adresse'];
-	$_GLOBALS['Ville']=$restaurant[0]['Ville'];
-	$_GLOBALS['CP']=$restaurant[0]['CP'];
-	$_GLOBALS['Tel']=$restaurant[0]['Tel'];
-	$_GLOBALS['Capacite']=$restaurant[0]['Capacite'];
-	$_GLOBALS['Description']=$restaurant[0]['Description'];
+	$NomR=$restaurant[0]['NomR'];
+	$Adresse=$restaurant[0]['Adresse'];
+	$Ville=$restaurant[0]['Ville'];
+	$CP=$restaurant[0]['CP'];
+	$Tel=$restaurant[0]['Tel'];
+	$Capacite=$restaurant[0]['Capacite'];
+	$Description=$restaurant[0]['Description'];
 
 	$commentaires=$requete2->fetchAll();
 
-	$_GLOBALS['commentaires']=$commentaires;
+	
 
 	
 ?>

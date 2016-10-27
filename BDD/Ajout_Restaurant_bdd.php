@@ -68,6 +68,6 @@ try
 		print "Erreur ! : " . $e->getMessage();
 	} 
 
-	header('Location:../Acceuil.php');
+	header('Location:../Accueil.php');
 	exit();
 	?>

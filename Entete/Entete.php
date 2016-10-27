@@ -14,7 +14,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="Acceuil.php">    Restolingo    </a>
+				<a class="navbar-brand" href="Accueil.php">    Restolingo    </a>
 			</div>
 
 			<div class="navbar-collapse" id="myNavbar">

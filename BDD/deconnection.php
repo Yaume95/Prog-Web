@@ -4,7 +4,7 @@
 	session_unset($_SESSION);
 	unset($_GLOBAL);
 	session_destroy();
-	header('Location: ../Acceuil.php');
+	header('Location: ../Accueil.php');
 	exit();
 	
 ?>

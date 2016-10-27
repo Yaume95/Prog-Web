@@ -34,7 +34,7 @@ try
 		$_SESSION['Pseudo'] = $donnees[0]['pseudo'];
 		$_SESSION['Collaborateur'] = $donnees[0]['collaborateur'];
 		$_SESSION['IDSESSION'] = sha1($donnees[0]['pseudo']) . sha1($donnees[0]['email']);
-		header('Location:../Acceuil.php');
+		header('Location:../Accueil.php');
 	}
 
 	

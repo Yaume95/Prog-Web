@@ -3,6 +3,14 @@
 
 
 
+        <?php
+                if($_SESSION['Collaborateur']==1)
+                {
+                    echo '<li><a href="Ajout_Restaurant.php"><span class="glyphicon glyphicon-plus"></span>  Ajouter un restaurant  </a></li>';
+                    echo '<li><a href="Liste_Membres.php"><span class="glyphicon glyphicon-list"></span>  Gérer les utilisateurs </a></li>';
+                }
+        ?>
+        
 
 <li>
     <a class="dropdown-toggle" data-toggle="dropdown" id="OptionUtilisateur"> 
@@ -11,13 +19,7 @@
     </a>
 
     <ul class="dropdown-menu">
-        <?php
-                if($_SESSION['Collaborateur']==1)
-                {
-                    echo '<li><a href="Ajout_Restaurant.php"><span class="glyphicon glyphicon-plus"></span>  Ajouter un restaurant  </a></li>';
-                    echo '<li><a href="Liste_Membres.php"><span class="glyphicon glyphicon-list"></span>  Gérer les utilisateurs </a></li>';
-                }
-        ?>
+        
         <li><a href="Liste_Favoris.php"><span class="glyphicon glyphicon-star"></span>  Mes favoris  </a></li>
         <li><a href="./Profil.php"><span class="glyphicon glyphicon-edit"></span>  Mon profil  </a></li>
       	<li class="divider"></li>
