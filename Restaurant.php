@@ -11,6 +11,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="./Scripts/Favori.js"></script>
+		<script src="./Scripts/SupprCommentaire.js"></script>
 		
 	</head>
 
@@ -77,7 +78,6 @@
 		 	?>	
 		 </small>
 
-		 	<br>
 	</div>
 
 <!-- ===================== Image du restaurant  ============================== -->
@@ -142,6 +142,31 @@
 <br>
 <br>
 <br>
+<div class="col-lg-1 col-md-1 col-sm-1"></div>
+<div class="col-lg-10 col-md-10 col-sm-10">
+	<hr>
+</div>
+<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+<br><br>
+<div class="container">
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10 text-center">
+		<div class="col-lg-4 col-md-4 col-sm-4 BordDroit">
+			<h2> Entrées </h2>
+		</div>
+		
+		<div class="col-lg-4 col-md-4 col-sm-4 BordDroit">
+			<h2> Plats </h2>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<h2> Desserts </h2>
+		</div>
+		
+	</div>
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
+</div>
+<br><br>
 
 <!-- ========================================  Commentaires  ======================================== -->
 
@@ -177,7 +202,7 @@
 	 					   	{
 	 					   		if($_SESSION['Collaborateur']==1)
 			 					   echo '<div class="media-right">
-								      <button class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></button>
+								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span><span class="ID_C hide">'.$commentaires[$i]['ID_C'].'</span><span class="ID_R hide">'.$_GET['ID_R'].'</span></button>
 								   </div>';
 							}
 

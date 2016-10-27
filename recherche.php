@@ -77,14 +77,31 @@
 			
 			$i=0;
 			while ($i<count($donnees) )
-			{
-				echo "<div class='row UnResultat'>";
-		     	echo "<button class='btn btn-link NomRestau'>". $donnees[$i]['NomR'] . "</button><span class='hide'>". $donnees[$i]['ID_R'] . "</span> <br>";
-		     	echo "<div class='ContenuLien'>";
-		     	echo "<small><label>" . $donnees[$i]['Ville']  . '</label></small>' . '<br> ';
-		     	echo "(Spécialité : " .  $donnees[$i]['Specialite'] . ")" . "<br>";
-		     	echo "N° Tel : " . $donnees[$i]['Tel'];
-		     	echo "</div></div>";
+			{		
+				$Image = $donnees[$i]["Image"];
+				echo '<div class="media">
+					  	  <button class="btn btn-link NomRestau media-heading">' . $donnees[$i]["NomR"] . '</button><span class="hide">' . $donnees[$i]['ID_R'] . '</span>
+					  	  <div class="media-left">
+					  	  	  <img src="' . $Image . '" width="82" height="82" alt="test"> 
+						  </div>
+							
+						  <div class="media-body">
+	   					  	  
+	   					  	  <p><label>' . $donnees[$i]['Ville']  . '</label></small></p>
+	   						  <p>' . '(Spécialité : ' .  $donnees[$i]['Specialite'] . ")" . '</p>
+	   						  <p>' . 'N° Tel : ' .  $donnees[$i]['Tel']  . '</p>
+	 					   </div>';
+	 					   if(isset($_SESSION['Collaborateur']))
+	 					   	{
+	 					   		if($_SESSION['Collaborateur']==1)
+			 					   echo '<div class="media-right">
+								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span></button>
+								   </div>';
+							}
+
+				echo ' </div>';
+				
+				echo "<hr>";
 
 		     	$i+=1;
 
