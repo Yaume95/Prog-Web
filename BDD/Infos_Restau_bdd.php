@@ -28,8 +28,5 @@
 	$Description=$restaurant[0]['Description'];
 
 	$commentaires=$requete2->fetchAll();
-
-	
-
 	
 ?>

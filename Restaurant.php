@@ -63,7 +63,7 @@
 			        $AdrRestau =$Adr['0']['Image'];
 
 
-		 			echo '<span class="hide">'. $_GET["ID_R"] . '</span>';
+		 			echo '<span class="hide ID_R">'. $_GET["ID_R"] . '</span>';
 				   	if(isset($_SESSION['IDSESSION']) )
 				   	{
 				   		if($Dejafavoris==0)
@@ -142,6 +142,7 @@
 <br>
 <br>
 <br>
+<!-- ============================================ Carte ============================================= -->
 <div class="col-lg-1 col-md-1 col-sm-1"></div>
 <div class="col-lg-10 col-md-10 col-sm-10">
 	<hr>
@@ -149,24 +150,113 @@
 <div class="col-lg-1 col-md-1 col-sm-1"></div>
 
 <br><br>
-<div class="container">
+<div class="container-fluid">
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
-	<div class="col-lg-10 col-md-10 col-sm-10 text-center">
-		<div class="col-lg-4 col-md-4 col-sm-4 BordDroit">
-			<h2> Entrées </h2>
-		</div>
-		
-		<div class="col-lg-4 col-md-4 col-sm-4 BordDroit">
-			<h2> Plats </h2>
-		</div>
-		<div class="col-lg-4 col-md-4 col-sm-4">
-			<h2> Desserts </h2>
-		</div>
-		
+	<div class="col-lg-10 col-md-10 col-sm-10 ">
+		<table class=" table table-responsive table-bordered table-striped">
+			<tbody>	
+				<tr>
+					<td class="col-lg-4 col-md-4 col-sm-4">
+ 						<h2 class="text-center">Entrées</h2>
+					</td>
+
+					<td class="col-lg-4 col-md-4 col-sm-4"> <h2 class="text-center">Plats</h2>
+					</td>
+
+					<td class="col-lg-4 col-md-4 col-sm-4"> <h2 class="text-center">Desserts</h2>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="col-lg-4 col-md-4 col-sm-4">
+ 						<table class="taille-max">
+ 							<tbody>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 							</tbody>
+ 						</table>
+					</td>
+
+					<td class="col-lg-4 col-md-4 col-sm-4">
+ 						<table class="taille-max">
+ 							<tbody>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 							</tbody>
+ 						</table>
+					</td>
+
+					<td class="col-lg-4 col-md-4 col-sm-4">
+ 						<table class="taille-max">
+ 							<tbody>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em><br></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 								<tr class="couleur-cellule">
+ 									<td><label>je suis un plat</label></td>
+ 									<td class="text-right"><em>prix €</em></td>
+ 								</tr>
+ 							</tbody>
+ 						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10">
+		<button class="btn btn-primary">Ajouter un menu</button>
 	</div>
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 </div>
-<br><br>
+<br>	
+<?php include("Champ_Ajout_Menu.html");?>
+<br>	
+<?php include("Champ_Ajout_Menu.html");?>
+
+
+	
+
 
 <!-- ========================================  Commentaires  ======================================== -->
 

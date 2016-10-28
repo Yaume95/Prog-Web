@@ -6,7 +6,7 @@
 	  	<div class="media-body">
 	    	<h3 class="media-heading"><?php echo $_SESSION['Pseudo'] ?></h3>
 	    	<p><label>Commentaire :</label></p><br>
-	    	<form action="./BDD/Ajout_Commentaire_bdd.php" method="post">
+	    	<form action="./BDD/Ajout_Commentaire_bdd.php?ID_R=<?php echo $_GET['ID_R'];?>" method="post">
 	    		<div class="col-lg-8 col-md-8 col-sm-8 form-group">
 					<textarea class="form-control" rows="5" name="NewComm" placeholder="Entrez votre commentaire ici !" required></textarea>
 				</div>

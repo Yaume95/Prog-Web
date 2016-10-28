@@ -10,6 +10,7 @@
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			<script src="./Scripts/recherche.js"></script>
+			<script src="./Scripts/supprRestau.js"></script>
 		</head>
 
 		<body>
@@ -95,7 +96,7 @@
 	 					   	{
 	 					   		if($_SESSION['Collaborateur']==1)
 			 					   echo '<div class="media-right">
-								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span></button>
+								      <button class="btn btn-link supR"><span class="glyphicon glyphicon-remove"></span></button>
 								   </div>';
 							}
 

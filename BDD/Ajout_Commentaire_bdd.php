@@ -23,8 +23,6 @@
 
 	$requete->execute();
 
-	print_r($requete->errorInfo());
-
 	}catch(PDOException $e)
 	{
 		print "Erreur ! : " . $e->getMessage();

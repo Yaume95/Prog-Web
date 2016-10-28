@@ -21,7 +21,6 @@
 		echo "<tr>";
 		echo "<td class='Pseudo'>". $membres[$i]['pseudo'] . "</td><td>" . $membres[$i]['prenom'] . '</td><td> ' . $membres[$i]['nom'] . "</td>";
 
-		echo "<td><button class='btn btn-info btn-sm  Modifier'>Modifier</button></td>";
 		echo "<td><button class='btn btn-success btn-sm Promouvoir'>Promouvoir</button></td>";
 
 		if($membres[$i]['banni']=="0")
