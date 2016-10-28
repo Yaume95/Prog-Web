@@ -251,8 +251,8 @@
 </div>
 <br>	
 <?php include("Champ_Ajout_Menu.html");?>
-<br>	
-<?php include("Champ_Ajout_Menu.html");?>
+
+
 
 
 	
