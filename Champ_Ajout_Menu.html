@@ -1,8 +1,7 @@
-
 <div class="container-fluid">
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 	<div class="col-lg-10 col-md-10 col-sm-10">
-		<form class="form-inline" method="post" action="">
+		<form class="form-inline" method="post" action="./BDD/Ajout_plat_bdd.php?ID_R=<?php echo intval($_GET['ID_R']); ?>">
 			<div class="form-group col-lg-2 col-md-2 col-sm-2">
 				<label>Type :</label><br>
 				<select name="Type" class="form-control ">
@@ -19,7 +18,8 @@
 			<div class="form-group col-lg-3 col-md-3 col-sm-3">
 				<label>Prix :</label><br>
 				<div class="has-feedback">
-					<input type="number" min="0" class="form-control has-feedback" name="PrixPlat" required><span class="form-control-feedback">€</span>
+					<input type="number" step="any" min="0" class="form-control" name="PrixPlat" required>
+					<span class="form-control-feedback">€</span>
 				</div>
 			</div>
 			<br><br><br><br>

@@ -2,6 +2,11 @@
 	session_start();
 	include('./Connection_BDD/Connection_serveur.php');
 
+	if(!isset($_SESSION['IDSESSION']))
+	{
+		header('Location:../Accueil.php');
+	}
+
 	$dbh->beginTransaction();
 
 	$requete = $dbh->prepare("DELETE FROM favoris WHERE (ID_R=:ID_R) AND (pseudo = :pseudo)");

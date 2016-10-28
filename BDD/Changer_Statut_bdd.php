@@ -1,6 +1,6 @@
 <?php
 
-	if($_SESSION['Collaborateur']==0)
+	if(!isset($_SESSION['Collaborateur']) or $_SESSION['Collaborateur']==0)
 	{
 		header('Location:../Accueil.php');
 	}

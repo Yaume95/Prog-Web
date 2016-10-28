@@ -1,4 +1,9 @@
 <?php
+
+	if(!isset($_SESSION['IDSESSION']) )
+	{
+		header('Location:../Accueil.php');
+	}
 	
 	session_start();
 

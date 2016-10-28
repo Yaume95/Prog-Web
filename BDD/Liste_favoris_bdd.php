@@ -1,4 +1,10 @@
 <?php
+	if(!isset($_SESSION['IDSESSION']) ) 
+	{
+		header('Location:../Accueil.php');
+		exit();
+	}
+	
 	include('./BDD/Connection_BDD/Connection_serveur.php');
 
 	$dbh->beginTransaction();

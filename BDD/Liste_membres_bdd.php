@@ -1,5 +1,10 @@
 <?php
 
+	if(!isset($_SESSION['Collaborateur']) or $_SESSION['Collaborateur']==0 ) 
+	{
+		header('Location:../Accueil.php');
+		exit();
+	}
 	include('./BDD/Connection_BDD/Connection_serveur.php');
 
 	$dbh->beginTransaction();

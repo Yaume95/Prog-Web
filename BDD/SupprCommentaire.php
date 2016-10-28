@@ -1,5 +1,12 @@
 <?php
+
 	session_start();
+
+	if(!isset($_SESSION['Collaborateur']) or $_SESSION['Collaborateur']==0)
+	{
+		header('Location:../Accueil.php');
+	}
+	
 	include('./Connection_BDD/Connection_serveur.php');
 
 	if($_SESSION['Collaborateur']==0)
@@ -18,6 +25,4 @@
 
 	$requete->execute();
 	header('Location:../Restaurant.php?ID_R='.$ID_R);
-
-
 ?>

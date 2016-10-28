@@ -40,6 +40,9 @@
 					$requete2 = $dbh->prepare("SELECT COUNT(*) AS nb,round(avg(Note),1) AS noteM FROM notes WHERE Note>=0 and ID_R=:ID_R");
 					$requete3 = $dbh->prepare("SELECT * FROM notes WHERE Pseudo=:Pseudo and ID_R=:ID_R");
 					$requete4 = $dbh->prepare("SELECT * FROM favoris WHERE Pseudo=:Pseudo and ID_R=:ID_R");
+					$requete5 = $dbh->prepare("SELECT * FROM carte WHERE Entree=1 AND ID_R=:ID_R");
+					$requete6 = $dbh->prepare("SELECT * FROM carte WHERE Plat=1 AND ID_R=:ID_R");
+					$requete7 = $dbh->prepare("SELECT * FROM carte WHERE Dessert=1 AND ID_R=:ID_R");
 
 			        $requete2->bindParam(":ID_R", $ID_R);
 			        $requete2->execute();
@@ -52,6 +55,19 @@
 			        $requete4->bindParam(":Pseudo",$_SESSION['Pseudo']);
 			        $requete4->execute();
 
+			        
+			        $requete5->bindParam(":ID_R", $ID_R);
+			        $requete5->execute();
+
+			        
+			        $requete6->bindParam(":ID_R", $ID_R);
+			        $requete6->execute();
+
+			        
+			        $requete7->bindParam(":ID_R", $ID_R);
+			        $requete7->execute();
+							        
+
 			        $note = $requete2->fetchAll();
 
 			        $noteM = $note['0']['noteM'];
@@ -61,6 +77,9 @@
 			        $ANote = count( $requete3->fetchAll());
 			        $Dejafavoris = count( $requete4->fetchAll());
 			        $AdrRestau =$Adr['0']['Image'];
+			        $ListeEntrees=$requete5->fetchAll();
+			        $ListePlats=$requete6->fetchAll();
+			        $ListeDesserts=$requete7->fetchAll();
 
 
 		 			echo '<span class="hide ID_R">'. $_GET["ID_R"] . '</span>';
@@ -143,13 +162,9 @@
 <br>
 <br>
 <!-- ============================================ Carte ============================================= -->
-<div class="col-lg-1 col-md-1 col-sm-1"></div>
-<div class="col-lg-10 col-md-10 col-sm-10">
-	<hr>
-</div>
-<div class="col-lg-1 col-md-1 col-sm-1"></div>
 
-<br><br>
+
+<br>
 <div class="container-fluid">
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 	<div class="col-lg-10 col-md-10 col-sm-10 ">
@@ -171,22 +186,18 @@
 					<td class="col-lg-4 col-md-4 col-sm-4">
  						<table class="taille-max">
  							<tbody>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
+								<?php
+									$i=0;
+									
+									while($i<count($ListeEntrees))
+									{
+		 								echo '<tr class="couleur-cellule">
+		 										<td><label>' . $ListeEntrees[$i]['Nom'] . '</label></td>
+		 									<td class="text-right"><em>' . $ListeEntrees[$i]['Prix'] .' €</em></td>
+		 								</tr>';
+		 								$i++;
+		 							}
+	 							?>						
  							</tbody>
  						</table>
 					</td>
@@ -194,22 +205,18 @@
 					<td class="col-lg-4 col-md-4 col-sm-4">
  						<table class="taille-max">
  							<tbody>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
+ 								<?php
+									$i=0;
+									
+									while($i<count($ListePlats))
+									{
+		 								echo '<tr class="couleur-cellule">
+		 										<td><label>' . $ListePlats[$i]['Nom'] . '</label></td>
+		 									<td class="text-right"><em>' . $ListePlats[$i]['Prix'] .' €</em></td>
+		 								</tr>';
+		 								$i++;
+		 							}
+	 							?>
  							</tbody>
  						</table>
 					</td>
@@ -217,22 +224,18 @@
 					<td class="col-lg-4 col-md-4 col-sm-4">
  						<table class="taille-max">
  							<tbody>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em><br></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
- 								<tr class="couleur-cellule">
- 									<td><label>je suis un plat</label></td>
- 									<td class="text-right"><em>prix €</em></td>
- 								</tr>
+ 								<?php
+									$i=0;
+									
+									while($i<count($ListeDesserts))
+									{
+		 								echo '<tr class="couleur-cellule">
+		 										<td><label>' . $ListeDesserts[$i]['Nom'] . '</label></td>
+		 									<td class="text-right"><em>' . $ListeDesserts[$i]['Prix'] .' €</em></td>
+		 								</tr>';
+		 								$i++;
+		 							}
+	 							?>
  							</tbody>
  						</table>
 					</td>
@@ -242,15 +245,8 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-	<div class="col-lg-1 col-md-1 col-sm-1"></div>
-	<div class="col-lg-10 col-md-10 col-sm-10">
-		<button class="btn btn-primary">Ajouter un menu</button>
-	</div>
-	<div class="col-lg-1 col-md-1 col-sm-1"></div>
-</div>
 <br>	
-<?php include("Champ_Ajout_Menu.html");?>
+<?php if(isset($_SESSION['Collaborateur']) and $_SESSION['Collaborateur']==1) include("Champ_Ajout_Menu.html");?>
 
 
 
@@ -292,7 +288,7 @@
 	 					   	{
 	 					   		if($_SESSION['Collaborateur']==1)
 			 					   echo '<div class="media-right">
-								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span><span class="ID_C hide">'.$commentaires[$i]['ID_C'].'</span><span class="ID_R hide">'.$_GET['ID_R'].'</span></button>
+								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span><span class="ID_C hide">'. $commentaires[$i]['ID_C'] . '</span><span class="ID_R hide">'.$_GET['ID_R'].'</span></button>
 								   </div>';
 							}
 

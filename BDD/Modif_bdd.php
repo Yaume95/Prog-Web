@@ -1,5 +1,11 @@
 <?php
 
+if(!isset($_SESSION['IDSESSION']) ) 
+	{
+		header('Location:../Accueil.php');
+		exit();
+	}
+
 try
 {
 	session_start();
