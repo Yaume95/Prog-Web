@@ -29,8 +29,6 @@ try
 	
 	$stmt->execute();
 
-	print_r($stmt->errorInfo());
-
 	$dbh->commit();
 
 	header('Location:../Accueil.php');

@@ -25,7 +25,7 @@ try
 
 	if(count($donnees)==0)
 	{
-		echo "test";
+		header('Location:../Accueil.php');
 	}
 	else
 	{

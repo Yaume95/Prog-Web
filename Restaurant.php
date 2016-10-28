@@ -37,49 +37,9 @@
 
 		 			$ID_R=intval($_GET['ID_R']);
 
-					$requete2 = $dbh->prepare("SELECT COUNT(*) AS nb,round(avg(Note),1) AS noteM FROM notes WHERE Note>=0 and ID_R=:ID_R");
-					$requete3 = $dbh->prepare("SELECT * FROM notes WHERE Pseudo=:Pseudo and ID_R=:ID_R");
-					$requete4 = $dbh->prepare("SELECT * FROM favoris WHERE Pseudo=:Pseudo and ID_R=:ID_R");
-					$requete5 = $dbh->prepare("SELECT * FROM carte WHERE Entree=1 AND ID_R=:ID_R");
-					$requete6 = $dbh->prepare("SELECT * FROM carte WHERE Plat=1 AND ID_R=:ID_R");
-					$requete7 = $dbh->prepare("SELECT * FROM carte WHERE Dessert=1 AND ID_R=:ID_R");
-
-			        $requete2->bindParam(":ID_R", $ID_R);
-			        $requete2->execute();
-
-			        $requete3->bindParam(":ID_R", $ID_R);
-			        $requete3->bindParam(":Pseudo",$_SESSION['Pseudo']);
-			        $requete3->execute();
-
-			        $requete4->bindParam(":ID_R", $ID_R);
-			        $requete4->bindParam(":Pseudo",$_SESSION['Pseudo']);
-			        $requete4->execute();
-
-			        
-			        $requete5->bindParam(":ID_R", $ID_R);
-			        $requete5->execute();
-
-			        
-			        $requete6->bindParam(":ID_R", $ID_R);
-			        $requete6->execute();
-
-			        
-			        $requete7->bindParam(":ID_R", $ID_R);
-			        $requete7->execute();
-							        
-
-			        $note = $requete2->fetchAll();
-
-			        $noteM = $note['0']['noteM'];
-			       
-
-			        $NbNotes= $note['0']['nb'];
-			        $ANote = count( $requete3->fetchAll());
-			        $Dejafavoris = count( $requete4->fetchAll());
+					
 			        $AdrRestau =$Adr['0']['Image'];
-			        $ListeEntrees=$requete5->fetchAll();
-			        $ListePlats=$requete6->fetchAll();
-			        $ListeDesserts=$requete7->fetchAll();
+
 
 
 		 			echo '<span class="hide ID_R">'. $_GET["ID_R"] . '</span>';
@@ -107,13 +67,10 @@
 		include("./BDD/Connection_BDD/Connection_serveur.php");
 
 		
-
 		if($AdrRestau!= NULL)
 		{
 			echo "<img src='" . $AdrRestau. "' class='img-rounded'>";
 		}
-
-		
 
 	?>
 	
@@ -288,7 +245,8 @@
 	 					   	{
 	 					   		if($_SESSION['Collaborateur']==1)
 			 					   echo '<div class="media-right">
-								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span><span class="ID_C hide">'. $commentaires[$i]['ID_C'] . '</span><span class="ID_R hide">'.$_GET['ID_R'].'</span></button>
+								      <button class="btn btn-link supC"><span class="glyphicon glyphicon-remove"></span><span class="ID_C hide">'. $commentaires[$i]['ID_C'] . '
+								      </span><span class="ID_R hide">'.$_GET['ID_R'].'</span></button>
 								   </div>';
 							}
 

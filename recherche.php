@@ -40,9 +40,7 @@
 	<?php
 		try
 		{
-			$user='root';
-			$pw='';
-			$bdd='projet_web';
+			include("./BDD/Connection_BDD/Connection_serveur.php");
 			
 			$dbh= new PDO('mysql:host=127.0.0.1;dbname=projet_web', 'root','');
 
@@ -54,7 +52,7 @@
 			$stmt->bindParam(':rech',$rech);
 
 			
-			$rech=$_GET['recherche'];
+			$rech=htmlspecialchars($_GET['recherche']);
 			$rech= "%".$rech."%";
 			
 
@@ -67,7 +65,7 @@
 			if($nbresultat>1)
 			{
 				echo '<h4><b>' . $nbresultat . ' résultats pour votre votre recherche :</b></h4>';	
-			}
+			}		
 			else
 			{
 				echo '<h4><b>' . $nbresultat . ' résultat pour votre votre recherche :</b></h4>';	

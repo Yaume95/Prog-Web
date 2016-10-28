@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 27 Octobre 2016 à 16:44
+-- Généré le :  Ven 28 Octobre 2016 à 21:42
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -23,6 +23,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `carte`
+--
+
+CREATE TABLE `carte` (
+  `ID_Plat` int(11) NOT NULL,
+  `Nom` varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `Entree` int(11) NOT NULL,
+  `Plat` int(11) NOT NULL,
+  `Dessert` int(11) NOT NULL,
+  `Prix` int(11) NOT NULL,
+  `ID_R` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `carte`
+--
+
+INSERT INTO `carte` (`ID_Plat`, `Nom`, `Entree`, `Plat`, `Dessert`, `Prix`, `ID_R`) VALUES
+(1, 'Hamburger', 0, 1, 0, 1, 0),
+(2, 'Frites', 0, 1, 0, 2, 0),
+(3, 'Big Mac', 0, 1, 0, 8, 0),
+(4, 'McFlurry', 0, 0, 1, 5, 0),
+(5, 'Salade', 1, 0, 0, 5, 0),
+(6, 'Sunday', 0, 0, 1, 5, 0),
+(7, 'Milkshake', 0, 0, 1, 5, 0),
+(8, 'Kebab', 0, 1, 0, 7, 3),
+(10, 'Glace ', 0, 0, 1, 2, 3),
+(11, 'Pizza basique', 0, 1, 0, 9, 14);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `commentaire`
 --
 
@@ -30,7 +62,7 @@ CREATE TABLE `commentaire` (
   `ID_C` int(11) NOT NULL,
   `ID_R` int(11) NOT NULL,
   `Pseudo` varchar(50) NOT NULL,
-  `Date` date NOT NULL,
+  `Date` varchar(20) NOT NULL,
   `Contenu` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -39,14 +71,10 @@ CREATE TABLE `commentaire` (
 --
 
 INSERT INTO `commentaire` (`ID_C`, `ID_R`, `Pseudo`, `Date`, `Contenu`) VALUES
-(4, 0, 'ProfWeb', '2016-10-27', 'Bof'),
-(20, 3, 'Yaume', '2016-10-26', 'J\'aime bieeeen!\r\n'),
-(21, 1, 'Exaltion', '2016-10-27', 'test'),
-(7, 2, 'Nikkudan', '2016-10-20', 'TROP BON ! '),
-(8, 3, 'Nikkudan', '2016-10-19', 'HHMMMM!'),
-(9, 0, 'Nikkudan', '2016-10-05', 'Putain je kiffe trop ! J\'y retournerai avec tous mes amis (donc tout seul) !'),
-(10, 4, 'Nikkudan', '2016-10-13', 'EXQUIS *renifle fort*'),
-(11, 1, 'Nikkudan', '2050-10-29', 'Tellement bon que j\'ai fait un saut dans le futur pour y manger,  bolala hmm *grogne*');
+(34, 0, 'Yaume', '27/10/2016 Ã  18:36', 'Pas trop mal, j\'aime bien moi :).\r\n'),
+(43, 14, 'Yaume', '28/10/2016 Ã  19:42', 'Pizza a volontÃ©, pas dÃ©gueu!'),
+(41, 1, 'Yaume', '27/10/2016 Ã  19:36', 'Pas mal, mais moins bien que Mcdo !'),
+(39, 2, 'Yaume', '27/10/2016 Ã  18:59', 'Pas mal du tout !');
 
 -- --------------------------------------------------------
 
@@ -65,8 +93,12 @@ CREATE TABLE `favoris` (
 
 INSERT INTO `favoris` (`ID_R`, `pseudo`) VALUES
 (0, 'Yaume'),
-(1, 'Exaltion'),
-(14, 'ProfWeb');
+(1, ''),
+(5, 'Yaume'),
+(14, 'ProfWeb'),
+(22, 'Yaume'),
+(2392, 'Yaume'),
+(340360, 'Yaume');
 
 -- --------------------------------------------------------
 
@@ -92,14 +124,14 @@ CREATE TABLE `membre` (
 
 INSERT INTO `membre` (`pseudo`, `nom`, `prenom`, `mdp`, `email`, `date_naissance`, `ImageU`, `collaborateur`, `banni`) VALUES
 ('Yaume', 'Boyer', 'Guillaume', '8cb2237d0679ca88db6464eac60da96345513964', 'yaume95@gmail.com', '1995-08-14', './CSS/Images/Utilisateurs/Yaume.png', 1, 0),
-('Exaltion', 'Dieu', 'Arnaud', '8cb2237d0679ca88db6464eac60da96345513964', 'dieu@vosrequetes.com', '1985-05-14', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 0),
+('Exaltion', 'Dieu', 'Arnaud', '8cb2237d0679ca88db6464eac60da96345513964', 'dieu@vosrequetes.com', '1985-05-14', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 1),
 ('Riles', 'Abdellah', 'Ghiles', '8cb2237d0679ca88db6464eac60da96345513964', 'ghiles@gmail.com', '1995-04-12', './CSS/Images/Utilisateurs/image_defaut.jpg', 1, 0),
 ('Folow', 'Galante', 'David', '8cb2237d0679ca88db6464eac60da96345513964', 'folow@gmail.com', '1995-05-04', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 0),
-('Alex95', 'Hyppolyte', 'Alexandre', '8cb2237d0679ca88db6464eac60da96345513964', 'alex@gmail.com', '1995-04-26', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 0),
+('Alex95', 'Hyppolyte', 'Alexandre', '8cb2237d0679ca88db6464eac60da96345513964', 'alex@gmail.com', '1995-04-26', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 1),
 ('ProfWeb', 'Gilly', 'Marvin', '9048ead9080d9b27d6b2b6ed363cbf8cce795f7f', 'gilly@gmail.com', '1990-01-01', './CSS/Images/Utilisateurs/image_defaut.jpg', 1, 0),
 ('Nikkudan', 'Queinec', 'Florian', '8cb2237d0679ca88db6464eac60da96345513964', 'monster@gmail.com', '1995-01-14', './CSS/Images/Utilisateurs/Nikkudan.png', 0, 0),
-('DJOKOvic', 'Djoko', 'Alex', '8cb2237d0679ca88db6464eac60da96345513964', 'djoko@gmail.com', '1995-04-26', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 0),
-('HarumiXXX', 'Hedhili', 'Abdelsalem', '8cb2237d0679ca88db6464eac60da96345513964', 'rumi@gmail.com', '1995-12-15', './CSS/Images/Utilisateurs/HarumiXXX.png', 0, 0);
+('DJOKOvic', 'Djoko', 'Alex', '8cb2237d0679ca88db6464eac60da96345513964', 'djoko@gmail.com', '1995-04-26', './CSS/Images/Utilisateurs/image_defaut.jpg', 0, 1),
+('HarumiXXX', 'Hedhili', 'Abdelsalem', '8cb2237d0679ca88db6464eac60da96345513964', 'rumi@gmail.com', '1995-12-15', './CSS/Images/Utilisateurs/image_defaut.jpg', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -123,7 +155,11 @@ INSERT INTO `notes` (`ID_R`, `Pseudo`, `Note`) VALUES
 (3, 'Yaume', 9),
 (4, 'Yaume', 8),
 (13, 'Yaume', 1),
-(1, 'Exaltion', 5);
+(1, 'Exaltion', 5),
+(2, 'Yaume', 8),
+(8, 'Yaume', 7),
+(14, 'Yaume', 5),
+(0, 'Exaltion', 1);
 
 -- --------------------------------------------------------
 
@@ -150,11 +186,8 @@ CREATE TABLE `restaurant` (
 
 INSERT INTO `restaurant` (`ID_R`, `NomR`, `Adresse`, `Ville`, `CP`, `Specialite`, `Tel`, `Capacite`, `Description`, `Image`) VALUES
 (0, 'Macdonald', '10 rue de la banane', 'Goussainville', 95190, 'Francaise', '0631546548', 200, 'Un macdonald banal', './CSS/Images/Restaurant/Macdonald.png'),
-(1, 'Quick', '11 avenue leclerc', 'Goussainville', 95190, 'Francaise', '0631546548', 200, 'Un quick banal', './CSS/Images/Restaurant/Quick.jpg'),
-(2, 'Odin\'s', '12 rue du général', 'Goussainville', 95190, 'Italienne', '0631546548', 200, 'Un odin\'s avec une description un peu plus longue que les autres pour voir si ca pose des probleme à l\'affichage mais vu que l\'on code correctement on devrait pas avoir de probleme, du moins j\'espere', './CSS/Images/Restaurant/default.jpg'),
 (3, 'Andalouze', '13 rue du square', 'Goussainville', 95190, 'Italienne', '0631546548', 200, 'Un andalouze banal', './CSS/Images/Restaurant/default.jpg'),
 (4, 'KFC', '14 boulevard roger salangro', 'Goussainville', 95190, 'Francaise', '0631546548', 200, 'Un kfc banal', './CSS/Images/Restaurant/KFC.png'),
-(5, 'Mistral', '103 rue de la marche', 'Goussainville', 95190, 'Espagnol', '0631546548', 200, 'Un mistral banal', './CSS/Images/Restaurant/Mistral.jpg'),
 (6, 'Mistral club', '10 rue du marché', 'Goussainville', 95190, 'Aucune', '0631546548', 200, 'Un macdonald banal', './CSS/Images/Restaurant/Mistral Club.jpg'),
 (7, 'O\'tacos', '22 rue de la bastille', 'Goussainville', 95190, 'Aucune', '0631546548', 200, 'Un macdonald banal', './CSS/Images/Restaurant/Otacos.jpg'),
 (8, 'Les fondus de la raclette', '10 rue george pittard', 'Goussainville', 95190, 'Aucune', '0631546548', 200, 'Un macdonald banal', './CSS/Images/Restaurant/Les fondus de la raclette.jpg'),
@@ -176,6 +209,12 @@ INSERT INTO `restaurant` (`ID_R`, `NomR`, `Adresse`, `Ville`, `CP`, `Specialite`
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `carte`
+--
+ALTER TABLE `carte`
+  ADD PRIMARY KEY (`ID_Plat`);
 
 --
 -- Index pour la table `commentaire`
@@ -219,15 +258,20 @@ ALTER TABLE `restaurant`
 --
 
 --
+-- AUTO_INCREMENT pour la table `carte`
+--
+ALTER TABLE `carte`
+  MODIFY `ID_Plat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `ID_C` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID_C` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT pour la table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `ID_R` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `ID_R` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
